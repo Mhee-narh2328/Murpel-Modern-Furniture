@@ -1,28 +1,30 @@
 import React from "react"
 import{navbar,
-        logo,
         nav,
         navList,
-        navItems} from'./layout.module.css'
+        navItems,
+        icons,
+        footer} from'./layout.module.css'
 import { StaticImage } from "gatsby-plugin-image"
+import {AiOutlineInstagram}  from "react-icons/ai"
+import {SlSocialTwitter} from "react-icons/sl"
+import {HiOutlinePhone} from "react-icons/hi"
+import {FiFacebook} from "react-icons/fi"
+import { Link } from "gatsby"
 export default function Layout({ children }) {
   return (
     <div>
         <header>
             <div className={navbar}>
                <div>
-               <StaticImage 
-                        alt='logo'
-                        src='../../images/logo.png'
-                        className= {logo}
-                    />
+                  <h2>Murpel Modern Furniture</h2>
                </div>
                <div className={nav}>
                 <ul className= {navList}>
-                    <li className={navItems}>Home</li>
-                    <li className={navItems}>Shop</li>
-                    <li className={navItems}>About</li>
-                    <li className={navItems}>Best Deals</li>
+                    <Link to ="/" className={navItems} >Home</Link>
+                    <Link to = "/shop" className={navItems}>Shop</Link>
+                    <Link to="" className={navItems}>About</Link>
+                    <Link to= "" className={navItems}>Best Deals</Link>
 
                 </ul>
                </div>
@@ -35,6 +37,18 @@ export default function Layout({ children }) {
             </div>
         </header>
       {children}
+      <footer>
+        <div className= {footer}>
+          <p>Contact us</p>
+          <div>
+            <span><AiOutlineInstagram className={icons}/></span>
+            <span><FiFacebook className={icons}/></span>
+            <span><SlSocialTwitter className={icons}/></span>
+            <span><HiOutlinePhone className={icons}/></span>
+          </div>
+          <h6>Copyright Murpelmodenfurniture (c)2022</h6>
+        </div>
+      </footer>
     </div>
   )
 }

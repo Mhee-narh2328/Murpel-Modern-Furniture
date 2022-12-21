@@ -218,7 +218,7 @@ export default function Home() {
       <section>
         <div className= {indexStyles.accordionContainer}>
           <h1>Frequently Asked <span>Questions</span> (FAQs)</h1>
-          <div className= {indexStyles.accordion}>
+          <div>
           <Accordion variant="outline-light">
             <Accordion.Item eventKey="0">
               <Accordion.Header>How can I pay for my order?</Accordion.Header>
