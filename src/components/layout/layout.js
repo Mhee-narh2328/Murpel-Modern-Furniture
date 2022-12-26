@@ -24,7 +24,6 @@ export default function Layout({ children }) {
                     <Link to ="/" className={navItems} >Home</Link>
                     <Link to = "/shop" className={navItems}>Shop</Link>
                     <Link to="" className={navItems}>About</Link>
-                    <Link to= "" className={navItems}>Best Deals</Link>
 
                 </ul>
                </div>

@@ -5,8 +5,9 @@ import Layout from "../components/layout/layout"
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Accordion from 'react-bootstrap/Accordion';
-// import { AiOutlineHome } from "react-icons/ai";
+import { AiOutlineSearch } from "react-icons/ai";
 // import { BsBuilding } from "react-icons/bs";
+
 import {BsArrowRight}  from "react-icons/bs"
 import { StaticImage } from "gatsby-plugin-image"
 
@@ -65,6 +66,12 @@ export default function Home() {
       <section>
         <div className={indexStyles.productGrid}>
           <div>
+            <div>
+              <form>
+                <input type="text" placeholder="Search.." name="search" className={indexStyles.searchInput}/>
+                <button type="submit" className={indexStyles.searchButton}><AiOutlineSearch/></button>
+              </form>
+            </div>
             <div>
               <DropdownButton id="dropdown-basic-button" title="Categories" variant="light">
                 <ul>

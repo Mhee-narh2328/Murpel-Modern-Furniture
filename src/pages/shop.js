@@ -1,11 +1,14 @@
 import React from "react"
 import * as shoppingStyles from '../styling/style.module.css'
 import Layout from "../components/layout/layout"
-// import { Link } from "gatsby"
+import { Link } from "gatsby"
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 
-import {BsArrowRight}  from "react-icons/bs"
+import {BsArrowRight}  from "react-icons/bs";
+import {  IoIosArrowBack,
+          IoIosArrowForward} from "react-icons/io";
+import { AiOutlineSearch } from "react-icons/ai";
 import { StaticImage } from "gatsby-plugin-image"
 // react Bootstrap Confirguration
 import "../../node_modules/react-bootstrap/dist/react-bootstrap";
@@ -17,10 +20,16 @@ export default function Shopping() {
         <section>
         <div className={shoppingStyles.productGrid}>
           <div>
+          <div>
+              <form>
+                <input type="text" placeholder="Search.." name="search" className={shoppingStyles.searchInput}/>
+                <button type="submit" className={shoppingStyles.searchButton}><AiOutlineSearch/></button>
+              </form>
+            </div>
             <div>
               <DropdownButton id="dropdown-basic-button" title="Categories" variant="light">
                 <ul>
-                  <li><Dropdown.Item href="">Home</Dropdown.Item></li>
+                  <li><Dropdown.Item href="">House</Dropdown.Item></li>
                   <li><Dropdown.Item href="">Office</Dropdown.Item></li>
                   <li><Dropdown.Item href="">Wardrobe</Dropdown.Item></li>
                   <li><Dropdown.Item href="">Storage</Dropdown.Item></li>
@@ -55,7 +64,8 @@ export default function Shopping() {
                 <p>Armchair in scandinaviaolstered with fabric Miss pattern buttons legs in natural wood.</p>
                   <div className= {shoppingStyles.productBoxGrid}>
                     <h5>#20,000</h5>
-                    <h6>BUY NOW <span><BsArrowRight/></span></h6>
+                    <Link to="/description"><h6>BUY NOW <span><BsArrowRight/></span></h6></Link>
+                    
                   </div>
               </div>
               <div className= {shoppingStyles.productGridBox}>
@@ -150,6 +160,13 @@ export default function Shopping() {
             </div>
           </div>
           
+        </div>
+        <div className={shoppingStyles.paginationButton}>
+          <button><IoIosArrowBack className={shoppingStyles.paginationIcon}/></button>
+          <button>1</button>
+          <button>2</button>
+          <button>3</button>
+          <button><IoIosArrowForward className={shoppingStyles.paginationIcon}/></button>
         </div>
       </section>
       </Layout>
