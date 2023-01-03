@@ -1,6 +1,7 @@
 import React from "react"
 import{navbar,
         nav,
+        container,
         navList,
         navItems,
         icons,
@@ -13,7 +14,7 @@ import {FiFacebook} from "react-icons/fi"
 import { Link } from "gatsby"
 export default function Layout({ children }) {
   return (
-    <div>
+    <div className={container}>
         <header>
             <div className={navbar}>
                <div>
@@ -23,7 +24,7 @@ export default function Layout({ children }) {
                 <ul className= {navList}>
                     <Link to ="/" className={navItems} >Home</Link>
                     <Link to = "/shop" className={navItems}>Shop</Link>
-                    <Link to="" className={navItems}>About</Link>
+                    <Link to="/about" className={navItems}>About</Link>
 
                 </ul>
                </div>

@@ -6,6 +6,13 @@
     text-decoration: none;
 }
 
+/* body{
+    background-color: pink;
+} */
+
+.container{
+    background-color:#fafafa;
+}
 .navbar{
     display: flex;
     justify-content: space-between;

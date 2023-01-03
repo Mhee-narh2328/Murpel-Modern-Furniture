@@ -4,6 +4,11 @@
     box-sizing: border-box;
     border: 0;
 }
+/* 
+body{
+    background-color: pink;
+} */
+
 section{
     margin: 0 4rem;
 }
@@ -170,7 +175,7 @@ section{
 
 .productGrid{
     display: grid;
-    grid-template-columns: 0.25fr 1fr;
+    grid-template-columns: 0.5fr 1fr;
 }
 
 .productImageGrid{
@@ -186,11 +191,9 @@ layout{
     background: #fafafa;
 }
 .productGridBox{
-    background: #Fafafa;
+    background: #ffff;
     box-shadow:0px 4px 4px rgba(255, 255, 255, 0.25);
     border-radius: 20px;
-    /* width: 200px; */
-    /* height: 400px; */
     padding: 1rem;
 }
 
@@ -536,4 +539,51 @@ layout{
     font-size: 22px;
     line-height: 160%;
     color: #171718;
+}
+
+/* Dropdown */
+.dropdown{
+    width: 200px;
+    /* margin: 100px auto; */
+    user-select: none;
+    position: relative;
+    display: block;
+}
+
+.dropdown .dropdownBtn{
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    color: #171718;
+    opacity: 0.8;
+}
+
+.dropdown .dropdownBtn span{
+    font-size: 30px;
+    margin-left: 2rem;
+    margin-top: 0.2rem;
+}
+
+.dropdown .dropdownContent{
+    position: absolute;
+    top: 110%;
+    left: 0;
+    background: #fff;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    color: rgba(23, 23, 24, 0.6);
+}
+
+.dropdown .dropdownContent .dropdownItem{
+    padding: 10px 0;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.dropdown .dropdownContent .dropdownItem:hover{
+    background: #fcfcfc;
+
 }

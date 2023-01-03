@@ -1,11 +1,12 @@
 
-import React from "react"
+import React,{useState} from "react"
 import * as indexStyles from '../styling/style.module.css'
 import Layout from "../components/layout/layout"
-import Dropdown from 'react-bootstrap/Dropdown';
-import DropdownButton from 'react-bootstrap/DropdownButton';
+// import Dropdown from 'react-bootstrap/Dropdown';
+// import DropdownButton from 'react-bootstrap/DropdownButton';
 import Accordion from 'react-bootstrap/Accordion';
 import { AiOutlineSearch } from "react-icons/ai";
+import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 // import { BsBuilding } from "react-icons/bs";
 
 import {BsArrowRight}  from "react-icons/bs"
@@ -16,6 +17,7 @@ import "../../node_modules/react-bootstrap/dist/react-bootstrap";
 import "../../node_modules/bootstrap/dist/css/bootstrap.css";
 
 export default function Home() {
+  const [isActive, SetIsActive] = useState(false)
   return (
     <Layout>
       <section>
@@ -72,33 +74,45 @@ export default function Home() {
                 <button type="submit" className={indexStyles.searchButton}><AiOutlineSearch/></button>
               </form>
             </div>
-            <div>
-              <DropdownButton id="dropdown-basic-button" title="Categories" variant="light">
-                <ul>
-                  <li><Dropdown.Item href="">Home</Dropdown.Item></li>
-                  <li><Dropdown.Item href="">Office</Dropdown.Item></li>
-                  <li><Dropdown.Item href="">Wardrobe</Dropdown.Item></li>
-                  <li><Dropdown.Item href="">Storage</Dropdown.Item></li>
-                  <li><Dropdown.Item href="">Table</Dropdown.Item></li>
-                  <li><Dropdown.Item href="">Sofa</Dropdown.Item></li>
-                  <li><Dropdown.Item href="">Chair</Dropdown.Item></li>
-                  <li><Dropdown.Item href="">Tv Stand</Dropdown.Item></li>
-                  <li><Dropdown.Item href="">Wall cladding</Dropdown.Item></li>
-                </ul>
-              </DropdownButton>
+            <div className= {indexStyles.dropdown}>
+                  <div className={indexStyles.dropdownBtn} onClick ={(e) =>
+                  SetIsActive(!isActive)}>Categories
+                  <span><MdOutlineKeyboardArrowDown/></span>
+                  </div>
+                  {isActive && (
+                      <div className={indexStyles.dropdownContent}>
+                          <div className={indexStyles.dropdownItem}>House</div>
+                          <div className={indexStyles.dropdownItem}>Office</div>
+                          <div className={indexStyles.dropdownItem}>Wardrobe</div>
+                          <div className={indexStyles.dropdownItem}>Storage</div>
+                          <div className={indexStyles.dropdownItem}>Table</div>
+                          <div className={indexStyles.dropdownItem}>Sofa</div>
+                          <div className={indexStyles.dropdownItem}>Chair</div>
+                          <div className={indexStyles.dropdownItem}>Tv Stand</div>
+                          <div className={indexStyles.dropdownItem}>Wall Cladding</div>
+                      </div>
+                  )}
             </div>
-            <div>
-              <DropdownButton id="dropdown-basic-button" title="Price" variant="light">
-                <ul>
-                  <li><Dropdown.Item href=""><input type= "radio"/>Under 50,000</Dropdown.Item></li>
-                  <li><Dropdown.Item href=""><input type= "radio"/>50,000-100,000</Dropdown.Item></li>
-                  <li><Dropdown.Item href=""><input type= "radio"/>100,000-150,000</Dropdown.Item></li>
-                  <li><Dropdown.Item href=""><input type= "radio"/>150,000-200,000</Dropdown.Item></li>
-                  <li><Dropdown.Item href=""><input type= "radio"/>200,000-250,000</Dropdown.Item></li>
-                  <li><Dropdown.Item href=""><input type= "radio"/>Over 250,000</Dropdown.Item></li>
-                </ul>
-              </DropdownButton>
-            </div>
+
+            {/* <div className= {indexStyles.dropdown}>
+                  <div className={indexStyles.dropdownBtn} onClick ={(e) =>
+                  SetIsActive(!isActive)}>Categories
+                  <span><MdOutlineKeyboardArrowDown/></span>
+                  </div>
+                  {isActive && (
+                      <div className={indexStyles.dropdownContent}>
+                          <div className={indexStyles.dropdownItem}>House</div>
+                          <div className={indexStyles.dropdownItem}>Office</div>
+                          <div className={indexStyles.dropdownItem}>Wardrobe</div>
+                          <div className={indexStyles.dropdownItem}>Storage</div>
+                          <div className={indexStyles.dropdownItem}>Table</div>
+                          <div className={indexStyles.dropdownItem}>Sofa</div>
+                          <div className={indexStyles.dropdownItem}>Chair</div>
+                          <div className={indexStyles.dropdownItem}>Tv Stand</div>
+                          <div className={indexStyles.dropdownItem}>Wall Cladding</div>
+                      </div>
+                  )}
+            </div> */}
           </div>
           <div>
             <div className= {indexStyles.productImageGrid}>
