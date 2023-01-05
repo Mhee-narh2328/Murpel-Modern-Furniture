@@ -94,25 +94,22 @@ export default function Home() {
                   )}
             </div>
 
-            {/* <div className= {indexStyles.dropdown}>
+            <div className= {indexStyles.dropdown}>
                   <div className={indexStyles.dropdownBtn} onClick ={(e) =>
-                  SetIsActive(!isActive)}>Categories
+                  SetIsActive(!isActive)}>Price
                   <span><MdOutlineKeyboardArrowDown/></span>
                   </div>
                   {isActive && (
-                      <div className={indexStyles.dropdownContent}>
-                          <div className={indexStyles.dropdownItem}>House</div>
-                          <div className={indexStyles.dropdownItem}>Office</div>
-                          <div className={indexStyles.dropdownItem}>Wardrobe</div>
-                          <div className={indexStyles.dropdownItem}>Storage</div>
-                          <div className={indexStyles.dropdownItem}>Table</div>
-                          <div className={indexStyles.dropdownItem}>Sofa</div>
-                          <div className={indexStyles.dropdownItem}>Chair</div>
-                          <div className={indexStyles.dropdownItem}>Tv Stand</div>
-                          <div className={indexStyles.dropdownItem}>Wall Cladding</div>
-                      </div>
+                    <div className={indexStyles.dropdownContent}>
+                      <div className={indexStyles.dropdownItem}><input type= "radio"/>Under 50,000</div>
+                      <div className={indexStyles.dropdownItem}><input type= "radio"/>50,000-100,000</div>
+                      <div className={indexStyles.dropdownItem}><input type= "radio"/>100,000-150,000</div>
+                      <div className={indexStyles.dropdownItem}><input type= "radio"/>150,000-200,000</div>
+                      <div className={indexStyles.dropdownItem}><input type= "radio"/>200,000-250,000</div>
+                      <div className={indexStyles.dropdownItem}><input type= "radio"/>Over 250,000</div>
+                    </div>
                   )}
-            </div> */}
+            </div>
           </div>
           <div>
             <div className= {indexStyles.productImageGrid}>
@@ -240,9 +237,9 @@ export default function Home() {
         <div className= {indexStyles.accordionContainer}>
           <h1>Frequently Asked <span>Questions</span> (FAQs)</h1>
           <div>
-          <Accordion variant="outline-light">
+          <Accordion defaultActiveKey="0" flush variant="outline-light">
             <Accordion.Item eventKey="0">
-              <Accordion.Header>How can I pay for my order?</Accordion.Header>
+              <Accordion.Header><strong>How can I pay for my order?</strong></Accordion.Header>
               <Accordion.Body>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
@@ -254,7 +251,7 @@ export default function Home() {
               </Accordion.Body>
             </Accordion.Item>
             <Accordion.Item eventKey="1">
-              <Accordion.Header>Can I pay by bank transfer?</Accordion.Header>
+              <Accordion.Header><strong>Can I pay by bank transfer?</strong></Accordion.Header>
               <Accordion.Body>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
@@ -266,7 +263,7 @@ export default function Home() {
               </Accordion.Body>
             </Accordion.Item>
             <Accordion.Item eventKey="2">
-              <Accordion.Header>How will i get my order</Accordion.Header>
+              <Accordion.Header><strong>How will i get my order</strong></Accordion.Header>
               <Accordion.Body>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
