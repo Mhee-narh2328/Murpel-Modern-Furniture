@@ -588,10 +588,19 @@ layout{
     padding: 10px 0;
     cursor: pointer;
     transition: all 0.2s;
+    display: grid;
+    grid-template-columns: 0.15fr 1fr;
+}
+
+
+.dropdownImage{
+    width: 15px;
+    margin-top: 2px;
 }
 
 .dropdown .dropdownContent .dropdownItem:hover{
     background: #fcfcfc;
+    color: #FE5E00;
 
 }
 .similarProducts{
@@ -629,4 +638,3 @@ layout{
 input[type="radio"] {
     margin-right: 5px;
   }
-

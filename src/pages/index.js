@@ -81,7 +81,12 @@ export default function Home() {
                   </div>
                   {isActive && (
                       <div className={indexStyles.dropdownContent}>
-                          <div className={indexStyles.dropdownItem}>House</div>
+                          <div className={indexStyles.dropdownItem}>
+                            <div>
+                              <StaticImage alt='logo' src='../images/home.png' className= {indexStyles.dropdownImage}/>
+                            </div>
+                            <span>House</span>
+                          </div>
                           <div className={indexStyles.dropdownItem}>Office</div>
                           <div className={indexStyles.dropdownItem}>Wardrobe</div>
                           <div className={indexStyles.dropdownItem}>Storage</div>
@@ -137,7 +142,7 @@ export default function Home() {
               </div>
               <div className= {indexStyles.productGridBox}>
                 <div className= {indexStyles.productGridBoxImageCon}>
-                  <StaticImage alt='logo' src='../images/sofa black.png' className= {indexStyles.productGridBoxImage}/>
+                  <StaticImage alt='logo' src='../images/right.png' className= {indexStyles.productGridBoxImage}/>
                 </div> 
                 <h3>Light Chair</h3>
                 <p>Armchair in scandinavian design upholstered with pattern buttons legs in natural wood.</p>

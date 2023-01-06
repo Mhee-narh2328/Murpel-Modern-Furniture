@@ -29,7 +29,12 @@ export default function Shopping() {
             <div>
               <DropdownButton id="dropdown-basic-button" title="Categories" variant="light">
                 <ul>
-                  <li><Dropdown.Item href="">House</Dropdown.Item></li>
+                  <li>
+                    <Dropdown.Item href="">
+                        <StaticImage alt='logo' src='../images/home.png'/>
+                        <span>House</span>
+                    </Dropdown.Item>
+                  </li>
                   <li><Dropdown.Item href="">Office</Dropdown.Item></li>
                   <li><Dropdown.Item href="">Wardrobe</Dropdown.Item></li>
                   <li><Dropdown.Item href="">Storage</Dropdown.Item></li>
@@ -81,7 +86,7 @@ export default function Shopping() {
               </div>
               <div className= {shoppingStyles.productGridBox}>
                 <div className= {shoppingStyles.productGridBoxImageCon}>
-                  <StaticImage alt='logo' src='../images/sofa black.png' className= {shoppingStyles.productGridBoxImage}/>
+                  <StaticImage alt='logo' src='../images/right.png' className= {shoppingStyles.productGridBoxImage}/>
                 </div> 
                 <h3>Light Chair</h3>
                 <p>Armchair in scandinavian design upholstered with pattern buttons legs in natural wood.</p>
