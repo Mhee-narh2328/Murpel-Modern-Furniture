@@ -187,6 +187,7 @@ section{
     background-color: #fafafa;
 }
 
+
 layout{
     background: #fafafa;
 }
@@ -586,4 +587,37 @@ layout{
 .dropdown .dropdownContent .dropdownItem:hover{
     background: #fcfcfc;
 
+}
+
+.similarProducts{
+    background: #ffff;
+    box-shadow:0px 4px 4px rgba(255, 255, 255, 0.25);
+    border-radius: 20px;
+    padding: 1rem;
+}
+
+.similarProducts h3{
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 160%;
+    color: #171718;
+    text-align: center;
+    margin-bottom: 0.7rem;
+}
+
+.similarProducts p{
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: -0.379167px;
+    color: #171718;
+    margin-bottom: 1rem;
+}
+.similarProductsSection h2{
+    margin:2rem 0;
 }
