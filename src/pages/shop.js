@@ -1,9 +1,8 @@
-import React from "react"
+import React,{useState} from "react"
 import * as shoppingStyles from '../styling/style.module.css'
 import Layout from "../components/layout/layout"
 import { Link } from "gatsby"
-import Dropdown from 'react-bootstrap/Dropdown';
-import DropdownButton from 'react-bootstrap/DropdownButton';
+import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 
 import {BsArrowRight}  from "react-icons/bs";
 import {  IoIosArrowBack,
@@ -15,48 +14,98 @@ import "../../node_modules/react-bootstrap/dist/react-bootstrap";
 import "../../node_modules/bootstrap/dist/css/bootstrap.css";
 
 export default function Shopping() {
+    const [isActive, SetIsActive] = useState(false)
     return (
       <Layout>
         <section>
         <div className={shoppingStyles.productGrid}>
-          <div>
-          <div>
+        <div>
+            <div>
               <form>
                 <input type="text" placeholder="Search.." name="search" className={shoppingStyles.searchInput}/>
                 <button type="submit" className={shoppingStyles.searchButton}><AiOutlineSearch/></button>
               </form>
             </div>
-            <div>
-              <DropdownButton id="dropdown-basic-button" title="Categories" variant="light">
-                <ul>
-                  <li>
-                    <Dropdown.Item href="">
-                        <StaticImage alt='logo' src='../images/home.png'/>
-                        <span>House</span>
-                    </Dropdown.Item>
-                  </li>
-                  <li><Dropdown.Item href="">Office</Dropdown.Item></li>
-                  <li><Dropdown.Item href="">Wardrobe</Dropdown.Item></li>
-                  <li><Dropdown.Item href="">Storage</Dropdown.Item></li>
-                  <li><Dropdown.Item href="">Table</Dropdown.Item></li>
-                  <li><Dropdown.Item href="">Sofa</Dropdown.Item></li>
-                  <li><Dropdown.Item href="">Chair</Dropdown.Item></li>
-                  <li><Dropdown.Item href="">Tv Stand</Dropdown.Item></li>
-                  <li><Dropdown.Item href="">Wall cladding</Dropdown.Item></li>
-                </ul>
-              </DropdownButton>
+            <div className= {shoppingStyles.dropdown}>
+                  <div className={shoppingStyles.dropdownBtn} onClick ={(e) =>
+                  SetIsActive(!isActive)}>Categories
+                  <span><MdOutlineKeyboardArrowDown/></span>
+                  </div>
+                  {isActive && (
+                      <div className={shoppingStyles.dropdownContent}>
+                          <div className={shoppingStyles.dropdownItem}>
+                            <div>
+                              <StaticImage alt='logo' src='../images/home.png' className= {shoppingStyles.dropdownImage}/>
+                            </div>
+                            <span>House</span>
+                          </div>
+                          <div className={shoppingStyles.dropdownItem}>
+                            <div>
+                              <StaticImage alt='logo' src='../images/office.png' className= {shoppingStyles.dropdownImage}/>
+                            </div>
+                            <span>Office</span>
+                          </div>
+                          <div className={shoppingStyles.dropdownItem}>
+                            <div>
+                              <StaticImage alt='logo' src='../images/wardrobe.png' className= {shoppingStyles.dropdownImage}/>
+                            </div>
+                            <span>Wardrobe</span>
+                          </div>
+                          <div className={shoppingStyles.dropdownItem}>
+                            <div>
+                              <StaticImage alt='logo' src='../images/storage.png' className= {shoppingStyles.dropdownImage}/>
+                            </div>
+                            <span>Storage</span>
+                          </div>
+                          <div className={shoppingStyles.dropdownItem}>
+                            <div>
+                              <StaticImage alt='logo' src='../images/table.png' className= {shoppingStyles.dropdownImage}/>
+                            </div>
+                            <span>Table</span>
+                          </div>
+                          <div className={shoppingStyles.dropdownItem}>
+                            <div>
+                              <StaticImage alt='logo' src='../images/sofa.png' className= {shoppingStyles.dropdownImage}/>
+                            </div>
+                            <span>Sofa</span>
+                          </div>
+                          <div className={shoppingStyles.dropdownItem}>
+                            <div>
+                              <StaticImage alt='logo' src='../images/chair (2).png' className= {shoppingStyles.dropdownImage}/>
+                            </div>
+                            <span>Chair</span>
+                          </div>
+                          <div className={shoppingStyles.dropdownItem}>
+                            <div>
+                              <StaticImage alt='logo' src='../images/stand.png' className= {shoppingStyles.dropdownImage}/>
+                            </div>
+                            <span>Tv Stand </span>
+                          </div>
+                          <div className={shoppingStyles.dropdownItem}>
+                            <div>
+                              <StaticImage alt='logo' src='../images/wall.png' className= {shoppingStyles.dropdownImage}/>
+                            </div>
+                            <span>Wall Cladding</span>
+                          </div>
+                      </div>
+                  )}
             </div>
-            <div>
-              <DropdownButton id="dropdown-basic-button" title="Price" variant="light">
-                <ul>
-                  <li><Dropdown.Item href=""><input type= "radio"/>Under 50,000</Dropdown.Item></li>
-                  <li><Dropdown.Item href=""><input type= "radio"/>50,000-100,000</Dropdown.Item></li>
-                  <li><Dropdown.Item href=""><input type= "radio"/>100,000-150,000</Dropdown.Item></li>
-                  <li><Dropdown.Item href=""><input type= "radio"/>150,000-200,000</Dropdown.Item></li>
-                  <li><Dropdown.Item href=""><input type= "radio"/>200,000-250,000</Dropdown.Item></li>
-                  <li><Dropdown.Item href=""><input type= "radio"/>Over 250,000</Dropdown.Item></li>
-                </ul>
-              </DropdownButton>
+
+            <div className= {shoppingStyles.dropdown}>
+                  <div className={shoppingStyles.dropdownBtn} onClick ={(e) =>
+                  SetIsActive(!isActive)}>Price
+                  <span><MdOutlineKeyboardArrowDown/></span>
+                  </div>
+                  {isActive && (
+                    <div className={shoppingStyles.dropdownContent}>
+                      <div className={shoppingStyles.dropdownItem}><input type= "radio"/>Under 50,000</div>
+                      <div className={shoppingStyles.dropdownItem}><input type= "radio"/>50,000-100,000</div>
+                      <div className={shoppingStyles.dropdownItem}><input type= "radio"/>100,000-150,000</div>
+                      <div className={shoppingStyles.dropdownItem}><input type= "radio"/>150,000-200,000</div>
+                      <div className={shoppingStyles.dropdownItem}><input type= "radio"/>200,000-250,000</div>
+                      <div className={shoppingStyles.dropdownItem}><input type= "radio"/>Over 250,000</div>
+                    </div>
+                  )}
             </div>
           </div>
           <div>

@@ -576,33 +576,38 @@ layout{
     position: relative;
     top: 110%;
     left: 0;
-    background: #fff;
+    /* background: #fff; */
+}
+.dropdown .dropdownContent,
+.dropdown .dropdownContent span{
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 500;
     font-size: 15px;
     color: rgba(23, 23, 24, 0.6);
+
 }
+
 
 .dropdown .dropdownContent .dropdownItem{
     padding: 10px 0;
     cursor: pointer;
     transition: all 0.2s;
     display: grid;
-    grid-template-columns: 0.15fr 1fr;
+    grid-template-columns: 0.175fr 1fr;
 }
 
 
 .dropdownImage{
-    width: 15px;
+    width: 20px;
     margin-top: 2px;
 }
 
-.dropdown .dropdownContent .dropdownItem:hover{
+/* .dropdown .dropdownContent .dropdownItem:hover{
     background: #fcfcfc;
     color: #FE5E00;
 
-}
+} */
 .similarProducts{
     background: #ffff;
     box-shadow:0px 4px 4px rgba(255, 255, 255, 0.25);

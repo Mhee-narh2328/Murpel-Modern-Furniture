@@ -87,14 +87,54 @@ export default function Home() {
                             </div>
                             <span>House</span>
                           </div>
-                          <div className={indexStyles.dropdownItem}>Office</div>
-                          <div className={indexStyles.dropdownItem}>Wardrobe</div>
-                          <div className={indexStyles.dropdownItem}>Storage</div>
-                          <div className={indexStyles.dropdownItem}>Table</div>
-                          <div className={indexStyles.dropdownItem}>Sofa</div>
-                          <div className={indexStyles.dropdownItem}>Chair</div>
-                          <div className={indexStyles.dropdownItem}>Tv Stand</div>
-                          <div className={indexStyles.dropdownItem}>Wall Cladding</div>
+                          <div className={indexStyles.dropdownItem}>
+                            <div>
+                              <StaticImage alt='logo' src='../images/office.png' className= {indexStyles.dropdownImage}/>
+                            </div>
+                            <span>Office</span>
+                          </div>
+                          <div className={indexStyles.dropdownItem}>
+                            <div>
+                              <StaticImage alt='logo' src='../images/wardrobe.png' className= {indexStyles.dropdownImage}/>
+                            </div>
+                            <span>Wardrobe</span>
+                          </div>
+                          <div className={indexStyles.dropdownItem}>
+                            <div>
+                              <StaticImage alt='logo' src='../images/storage.png' className= {indexStyles.dropdownImage}/>
+                            </div>
+                            <span>Storage</span>
+                          </div>
+                          <div className={indexStyles.dropdownItem}>
+                            <div>
+                              <StaticImage alt='logo' src='../images/table.png' className= {indexStyles.dropdownImage}/>
+                            </div>
+                            <span>Table</span>
+                          </div>
+                          <div className={indexStyles.dropdownItem}>
+                            <div>
+                              <StaticImage alt='logo' src='../images/sofa.png' className= {indexStyles.dropdownImage}/>
+                            </div>
+                            <span>Sofa</span>
+                          </div>
+                          <div className={indexStyles.dropdownItem}>
+                            <div>
+                              <StaticImage alt='logo' src='../images/chair (2).png' className= {indexStyles.dropdownImage}/>
+                            </div>
+                            <span>Chair</span>
+                          </div>
+                          <div className={indexStyles.dropdownItem}>
+                            <div>
+                              <StaticImage alt='logo' src='../images/stand.png' className= {indexStyles.dropdownImage}/>
+                            </div>
+                            <span>Tv Stand </span>
+                          </div>
+                          <div className={indexStyles.dropdownItem}>
+                            <div>
+                              <StaticImage alt='logo' src='../images/wall.png' className= {indexStyles.dropdownImage}/>
+                            </div>
+                            <span>Wall Cladding</span>
+                          </div>
                       </div>
                   )}
             </div>
