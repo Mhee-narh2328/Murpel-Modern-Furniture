@@ -24,7 +24,7 @@ export default function description() {
                     <div className={descriptionStyles.descriptionContainer}>
                         <div>
                             <StaticImage
-                                src="../images/sofa black.png"
+                                src="../images/right.png"
                                 className={descriptionStyles.descriptionContainerImage}
                             />
                         </div>
