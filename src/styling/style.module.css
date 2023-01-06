@@ -337,6 +337,12 @@ layout{
     color: #FE5E00;
 }
 
+/* New Accordion code */
+
+
+
+
+
 .searchInput{
     background: #FFFFFF;
     border-radius: 8px 0px 0px 8px;
@@ -567,7 +573,7 @@ layout{
 }
 
 .dropdown .dropdownContent{
-    position: absolute;
+    position: relative;
     top: 110%;
     left: 0;
     background: #fff;
@@ -588,7 +594,6 @@ layout{
     background: #fcfcfc;
 
 }
-
 .similarProducts{
     background: #ffff;
     box-shadow:0px 4px 4px rgba(255, 255, 255, 0.25);
@@ -621,3 +626,7 @@ layout{
 .similarProductsSection h2{
     margin:2rem 0;
 }
+input[type="radio"] {
+    margin-right: 5px;
+  }
+
