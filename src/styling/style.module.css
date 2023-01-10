@@ -254,7 +254,7 @@ layout{
 .productGridBoxImageCon{
     width: 213px;
     height:224px ;
-    object-fit: contain;
+    object-fit: cover;
     justify-content: center;
     align-items: center;
     display: flex;
@@ -264,7 +264,7 @@ layout{
 .productGridBoxImage{
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
 }
 
 .productGridButton button{

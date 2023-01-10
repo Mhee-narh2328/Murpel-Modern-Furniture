@@ -11,10 +11,20 @@ import {AiOutlineInstagram}  from "react-icons/ai"
 import {SlSocialTwitter} from "react-icons/sl"
 import {HiOutlinePhone} from "react-icons/hi"
 import {FiFacebook} from "react-icons/fi"
-import { Link } from "gatsby"
-export default function Layout({ children }) {
+import { Link , useStaticQuery, graphql} from "gatsby"
+export default function Layout({pageTitle, children }) {
+  // const data = useStaticQuery(graphql`
+  //   query {
+  //     site {
+  //       siteMetadata {
+  //         title
+  //       }
+  //     }
+  //   }
+  //   `)
   return (
     <div className={container}>
+      {/* <header  className={siteTitle}>{data.site.siteMetadata.title}</header> */}
         <header>
             <div className={navbar}>
                <div>

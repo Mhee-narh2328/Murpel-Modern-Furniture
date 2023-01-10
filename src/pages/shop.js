@@ -1,7 +1,7 @@
 import React,{useState} from "react"
 import * as shoppingStyles from '../styling/style.module.css'
 import Layout from "../components/layout/layout"
-import { Link } from "gatsby"
+import { Link , graphql} from "gatsby"
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 
 import {BsArrowRight}  from "react-icons/bs";
@@ -12,6 +12,8 @@ import { StaticImage } from "gatsby-plugin-image"
 // react Bootstrap Confirguration
 import "../../node_modules/react-bootstrap/dist/react-bootstrap";
 import "../../node_modules/bootstrap/dist/css/bootstrap.css";
+
+import Seo from '../components/seo'
 
 export default function Shopping() {
     const [isActive, SetIsActive] = useState(false)
@@ -226,4 +228,4 @@ export default function Shopping() {
       </Layout>
     );
   }
-  export const Head = () => <title>Shopping Page</title>
+  export const Head = () =><Seo title="Shop Page" />

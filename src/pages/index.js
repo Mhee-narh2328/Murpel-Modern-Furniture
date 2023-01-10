@@ -1,6 +1,7 @@
 
 import React,{useState} from "react"
 import * as indexStyles from '../styling/style.module.css'
+import {  graphql} from "gatsby"
 import Layout from "../components/layout/layout"
 // import Dropdown from 'react-bootstrap/Dropdown';
 // import DropdownButton from 'react-bootstrap/DropdownButton';
@@ -16,7 +17,9 @@ import { StaticImage } from "gatsby-plugin-image"
 import "../../node_modules/react-bootstrap/dist/react-bootstrap";
 import "../../node_modules/bootstrap/dist/css/bootstrap.css";
 
-export default function Home() {
+import Seo from '../components/seo'
+
+const Home =({data}) => {
   const [isActive, SetIsActive] = useState(false)
   return (
     <Layout>
@@ -158,105 +161,25 @@ export default function Home() {
           </div>
           <div>
             <div className= {indexStyles.productImageGrid}>
-              <div className= {indexStyles.productGridBox}>
+              {
+                data.allContentfulHomepage.nodes.map(node =>( 
+                <div className= {indexStyles.productGridBox}>
                 <div className= {indexStyles.productGridBoxImageCon}>
-                <StaticImage alt='logo' src='../images/stool.png' className= {indexStyles.productGridBoxImage}/>
+                <img 
+                  alt='productImage'
+                  src={ node?.productImage.url }
+                  className= {indexStyles.productGridBoxImage}
+                />
                 </div>
-                <h3>Wooden Tool</h3>
-                <p>Armchair in scandinaviaolstered with fabric Miss pattern buttons legs in natural wood.</p>
+                <h3 key={node.productName}>{node.productName}</h3>
+                <p key={node.productParagraph}>{node.productParagraph}</p>
                   <div className= {indexStyles.productBoxGrid}>
-                    <h5>#20,000</h5>
+                    <h5 key={node.productPrice}>{node.productPrice}</h5>
                     <h6>BUY NOW <span><BsArrowRight/></span></h6>
                   </div>
               </div>
-              <div className= {indexStyles.productGridBox}>
-                <div className= {indexStyles.productGridBoxImageCon}>
-                <StaticImage alt='logo' src='../images/chair.png' className= {indexStyles.productGridBoxImage}/>
-                </div> 
-                <h3>Kody Armchair</h3>
-                <p>Scandinavian design upholstered with fabric Miss pattern buttons legs in natural wood.</p>
-                  <div className= {indexStyles.productBoxGrid}>
-                    <h5>#45,000</h5>
-                    <h6>BUY NOW <span><BsArrowRight/></span> </h6>
-                  </div>
-              </div>
-              <div className= {indexStyles.productGridBox}>
-                <div className= {indexStyles.productGridBoxImageCon}>
-                  <StaticImage alt='logo' src='../images/right.png' className= {indexStyles.productGridBoxImage}/>
-                </div> 
-                <h3>Light Chair</h3>
-                <p>Armchair in scandinavian design upholstered with pattern buttons legs in natural wood.</p>
-                  <div className= {indexStyles.productBoxGrid}>
-                    <h5>#70,000</h5>
-                    <h6>BUY NOW <span><BsArrowRight/></span></h6>
-                  </div>
-              </div>
-              <div className= {indexStyles.productGridBox}>
-                <div className= {indexStyles.productGridBoxImageCon}>
-                <StaticImage alt='logo' src='../images/table lamp.png' className= {indexStyles.productGridBoxImage}/>
-                </div> 
-                <h3>Table Lamp</h3>
-                <p>Armchair in scandinaviaolstered with fabric Miss pattern buttons legs in natural wood.</p>
-                  <div className= {indexStyles.productBoxGrid}>
-                    <h5>#15,000</h5>
-                    <h6>BUY NOW <span><BsArrowRight/></span></h6>
-                  </div>
-              </div>
-              <div className= {indexStyles.productGridBox}>
-                <div className= {indexStyles.productGridBoxImageCon}>
-                  <StaticImage alt='logo' src='../images/bedside table.png' className= {indexStyles.productGridBoxImage}/>
-                </div> 
-                <h3>Bedside Table</h3>
-                <p>Finavian design upholstered with fabric Miss pattern buttons legs in natural wood.</p>
-                  <div className= {indexStyles.productBoxGrid}>
-                    <h5>#20,000</h5>
-                    <h6>BUY NOW <span><BsArrowRight/></span></h6>
-                  </div>
-              </div>
-              <div className= {indexStyles.productGridBox}>
-                <div className= {indexStyles.productGridBoxImageCon}> 
-                  <StaticImage alt='logo' src='../images/tea table.png' className= {indexStyles.productGridBoxImage}/>
-                </div>
-                <h3>Sofa Dark</h3>
-                <p>Armchair in scandinaviaolstered with fabric Miss pattern buttons legs in natural wood.</p>
-                  <div className= {indexStyles.productBoxGrid}>
-                    <h5>#40,000</h5>
-                    <h6>BUY NOW <span><BsArrowRight/></span></h6>
-                  </div>
-              </div>
-              <div className= {indexStyles.productGridBox}>
-                <div className= {indexStyles.productGridBoxImageCon}>
-                  <StaticImage alt='logo' src='../images/chair (1).png' className= {indexStyles.productGridBoxImage}/>
-                </div>
-                <h3>Kody Armchair</h3>
-                <p>Scandinavian design upholstered with fabric Miss pattern buttons legs in natural wood.</p>
-                  <div className= {indexStyles.productBoxGrid}>
-                    <h5>#45,000</h5>
-                    <h6>BUY NOW <span><BsArrowRight/></span></h6>
-                  </div>
-              </div>
-              <div className= {indexStyles.productGridBox}>
-                <div className= {indexStyles.productGridBoxImageCon}>
-                  <StaticImage alt='logo' src='../images/sofa black (1).png' className= {indexStyles.productGridBoxImage}/>
-                </div> 
-                <h3>Light Chair</h3>
-                <p>Armchair in scandinavian design upholstered with pattern buttons legs in natural wood.</p>
-                  <div className= {indexStyles.productBoxGrid}>
-                    <h5>#70,000</h5>
-                    <h6>BUY NOW <span><BsArrowRight/></span></h6>
-                  </div>
-              </div>
-              <div className= {indexStyles.productGridBox}>
-                <div className= {indexStyles.productGridBoxImageCon}>
-                  <StaticImage alt='logo' src='../images/bedside table (1).png' className= {indexStyles.productGridBoxImage}/>
-                </div>
-                <h3>Bedside Table</h3>
-                <p>Finavian design upholstered with fabric Miss pattern buttons legs in natural wood.</p>
-                  <div className= {indexStyles.productBoxGrid}>
-                    <h5>#20,000</h5>
-                    <h6>BUY NOW <span><BsArrowRight/></span></h6>
-                  </div>
-              </div>
+                ))
+            }
               
             </div>
             <div className= {indexStyles.productGridButton}>
@@ -326,4 +249,28 @@ export default function Home() {
     </Layout>
   );
 }
-export const Head = () => <title>Home Page</title>
+export const query = graphql`
+query Homepage {
+  allContentfulHomepage {
+    nodes {
+      id
+      productColor
+      productDescription {
+        raw
+      }
+      productImage {
+        url
+      }
+      productMaterial
+      productName
+      productParagraph
+      productPrice
+      productSeatingCapacity
+      productSize
+    }
+  }
+}
+`;
+export default Home
+
+export const Head = () => <Seo title="Home Page" />
