@@ -1,7 +1,7 @@
 
 import React,{useState} from "react"
 import * as indexStyles from '../styling/style.module.css'
-import {  graphql} from "gatsby"
+import {Link,graphql} from "gatsby"
 import Layout from "../components/layout/layout"
 // import Dropdown from 'react-bootstrap/Dropdown';
 // import DropdownButton from 'react-bootstrap/DropdownButton';
@@ -162,7 +162,7 @@ const Home =({data}) => {
           <div>
             <div className= {indexStyles.productImageGrid}>
               {
-                data.allContentfulHomepage.nodes.map(node =>( 
+                data.allContentfulProduct.nodes.map(node =>( 
                 <div className= {indexStyles.productGridBox}>
                 <div className= {indexStyles.productGridBoxImageCon}>
                 <img 
@@ -174,8 +174,9 @@ const Home =({data}) => {
                 <h3 key={node.productName}>{node.productName}</h3>
                 <p key={node.productParagraph}>{node.productParagraph}</p>
                   <div className= {indexStyles.productBoxGrid}>
-                    <h5 key={node.productPrice}>{node.productPrice}</h5>
-                    <h6>BUY NOW <span><BsArrowRight/></span></h6>
+                    <h5 key={node.productPrice}>#{node.productPrice}</h5>
+                    <Link to = {`/index/${node.id}`}><h6>BUY NOW <span><BsArrowRight/></span></h6></Link>
+                    {/* <Link to={`/supports/${node.id}`}> <button>View</button></Link> */}
                   </div>
               </div>
                 ))
@@ -251,7 +252,7 @@ const Home =({data}) => {
 }
 export const query = graphql`
 query Homepage {
-  allContentfulHomepage {
+  allContentfulProduct {
     nodes {
       id
       productColor
