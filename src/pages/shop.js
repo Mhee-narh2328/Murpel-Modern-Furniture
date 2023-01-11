@@ -120,7 +120,7 @@ export default function Shopping() {
                 <p>Armchair in scandinaviaolstered with fabric Miss pattern buttons legs in natural wood.</p>
                   <div className= {shoppingStyles.productBoxGrid}>
                     <h5>#20,000</h5>
-                    <Link to="/description"><h6>BUY NOW <span><BsArrowRight/></span></h6></Link>
+                    <Link to=""><h6>BUY NOW <span><BsArrowRight/></span></h6></Link>
                     
                   </div>
               </div>

@@ -34,7 +34,7 @@ export default function Layout({pageTitle, children }) {
                 <ul className= {navList}>
                     <Link to ="/" className={navItems} >Home</Link>
                     <Link to = "/shop" className={navItems}>Shop</Link>
-                    <Link to="/about" className={navItems}>About</Link>
+                    <Link to="" className={navItems}>About</Link>
 
                 </ul>
                </div>
