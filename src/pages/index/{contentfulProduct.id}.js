@@ -118,7 +118,7 @@ const DescriptionPage = (props)=> {
                         </div>
                     </div>
                     <div className={descriptionStyles.pageDescriptionContent}>
-                        <p>{renderRichText(props.data.contentfulProduct.productDescription.raw, options)}</p>
+                        <p>{renderRichText(props.data.contentfulProduct.productDescription, options)}</p>
                     </div>
                 </div>
 
