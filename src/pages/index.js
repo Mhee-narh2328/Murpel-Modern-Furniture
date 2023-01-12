@@ -20,6 +20,7 @@ import "../../node_modules/bootstrap/dist/css/bootstrap.css";
 import Seo from '../components/seo'
 
 const Home =({data}) => {
+  const [ category, setCategory ] = useState('')
   const [isActive, SetIsActive] = useState(false)
   return (
     <Layout>
@@ -83,8 +84,22 @@ const Home =({data}) => {
                   <span><MdOutlineKeyboardArrowDown/></span>
                   </div>
                   {isActive && (
+                       
                       <div className={indexStyles.dropdownContent}>
+                        <button onClick={ () => setCategory('All') }>All</button>
+                        { data?.allContentfulCategory.nodes.map((node, i) => (
                           <div className={indexStyles.dropdownItem}>
+                          <div>
+                            <StaticImage alt='logo' src='../images/home.png' className= {indexStyles.dropdownImage}/>
+                          </div>
+                          <span  key={ node?.id } 
+                           onClick={ () => setCategory(node?.categoryName) } 
+                           >
+                            { node?.categoryName }
+                          </span>
+                          </div>
+                        ))}
+                          {/* <div className={indexStyles.dropdownItem}>
                             <div>
                               <StaticImage alt='logo' src='../images/home.png' className= {indexStyles.dropdownImage}/>
                             </div>
@@ -137,7 +152,7 @@ const Home =({data}) => {
                               <StaticImage alt='logo' src='../images/wall.png' className= {indexStyles.dropdownImage}/>
                             </div>
                             <span>Wall Cladding</span>
-                          </div>
+                          </div> */}
                       </div>
                   )}
             </div>
@@ -161,30 +176,64 @@ const Home =({data}) => {
           </div>
           <div>
             <div className= {indexStyles.productImageGrid}>
-              {
-                data.allContentfulProduct.nodes.map(node =>( 
-                <div className= {indexStyles.productGridBox}>
-                <div className= {indexStyles.productGridBoxImageCon}>
-                <img 
-                  alt='productImage'
-                  src={ node?.productImage.url }
-                  className= {indexStyles.productGridBoxImage}
-                />
-                </div>
-                <h3 key={node.productName}>{node.productName}</h3>
-                <p key={node.productParagraph}>{node.productParagraph}</p>
-                  <div className= {indexStyles.productBoxGrid}>
-                    <h5 key={node.productPrice}>#{node.productPrice}</h5>
-                    <Link to = {`/index/${node.id}`}><h6>BUY NOW <span><BsArrowRight/></span></h6></Link>
-                    {/* <Link to={`/supports/${node.id}`}> <button>View</button></Link> */}
-                  </div>
-              </div>
-                ))
-            }
+            {/* <div className= {supportStyles.grid3Column }>
+                    { data?.allContentfulEduSupport.nodes.filter((node) => {
+                      if(category === '' || category === 'All') {
+                        return node
+                      } else if( node?.category[0].name.toLowerCase().includes(category.toLowerCase())) {
+                        return node
+                      } return false
+                    }).map((node, i) => (
+                        <div key={ node?.id } >
+                          <div className= {supportStyles.grid3ColumnflowImg}>
+                          <img 
+                           src={ node?.image.url } 
+                           alt="edusupport"
+                           className={supportStyles.grid3ColumnflowImage}
+                           />
+                          </div> 
+                                <div className= {supportStyles.grid3ColumnText}>
+                                    <h4>{ node?.title }</h4>
+                                    <h6>Category: { node?.category[0].name } </h6>
+                                    <p>Posted { convertDate(node?.createdAt) }</p>
+                                </div>
+                                <div className= {supportStyles.grid3ColumnButton}>
+                                <Link to={`/supports/${node.id}`}> <button>View</button></Link>
+                                </div>
+                        </div>
+                    ))}    
+                       </div>     */}
+              {data?.allContentfulProduct.nodes.filter((node) => {
+                  if (category === '' || category === 'All'){
+                    return node
+                  } else if( node?.category[0].categoryName.toLowerCase().includes(category.toLowerCase())) {
+                        return node
+                      } return false
+                }).map((node, i) => (
+                  <div key ={node?.id}>
+                    <div className= {indexStyles.productGridBox}>
+                    <div className= {indexStyles.productGridBoxImageCon}>
+                    <img 
+                      alt='productImage'
+                      src={ node?.productImage.url }
+                      className= {indexStyles.productGridBoxImage}
+                    />
+                    </div>
+                    <h3 key={node.productName}>{node.productName}</h3>
+                    <p key={node.productParagraph}>{node.productParagraph}</p>
+                      <div className= {indexStyles.productBoxGrid}>
+                        <h5 key={node.productPrice}>#{node.productPrice}</h5>
+                        <Link to = {`/index/${node.id}`}><h6>BUY NOW <span><BsArrowRight/></span></h6></Link>
+                      </div>
+                      </div>
+                      </div>
+                ))}
+                
+              
               
             </div>
             <div className= {indexStyles.productGridButton}>
-                <button>View more</button>
+                <Link to="/shop"><button>View more</button></Link>
             </div>
           </div>
           
@@ -252,8 +301,11 @@ const Home =({data}) => {
 }
 export const query = graphql`
 query Homepage {
-  allContentfulProduct {
+  allContentfulProduct(limit: 9) {
     nodes {
+        category {
+          categoryName
+        }
       id
       productColor
       productDescription {
@@ -262,12 +314,21 @@ query Homepage {
       productImage {
         url
       }
+
+      productImage1{
+        url
+      }
       productMaterial
       productName
       productParagraph
       productPrice
       productSeatingCapacity
       productSize
+    }
+  }
+  allContentfulCategory {
+    nodes {
+      categoryName
     }
   }
 }
