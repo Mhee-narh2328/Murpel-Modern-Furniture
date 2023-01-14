@@ -1,7 +1,7 @@
 
-import React,{useState} from "react"
+import React, {useState} from "react"
 import * as indexStyles from '../styling/style.module.css'
-import {Link,graphql} from "gatsby"
+import {Link, graphql} from "gatsby"
 import Layout from "../components/layout/layout"
 // import Dropdown from 'react-bootstrap/Dropdown';
 // import DropdownButton from 'react-bootstrap/DropdownButton';
@@ -22,6 +22,7 @@ import Seo from '../components/seo'
 const Home =({data}) => {
   const [ category, setCategory ] = useState('')
   const [isActive, SetIsActive] = useState(false)
+  console.log(category)
   return (
     <Layout>
       <section>
@@ -99,60 +100,6 @@ const Home =({data}) => {
                           </span>
                           </div>
                         ))}
-                          {/* <div className={indexStyles.dropdownItem}>
-                            <div>
-                              <StaticImage alt='logo' src='../images/home.png' className= {indexStyles.dropdownImage}/>
-                            </div>
-                            <span>House</span>
-                          </div>
-                          <div className={indexStyles.dropdownItem}>
-                            <div>
-                              <StaticImage alt='logo' src='../images/office.png' className= {indexStyles.dropdownImage}/>
-                            </div>
-                            <span>Office</span>
-                          </div>
-                          <div className={indexStyles.dropdownItem}>
-                            <div>
-                              <StaticImage alt='logo' src='../images/wardrobe.png' className= {indexStyles.dropdownImage}/>
-                            </div>
-                            <span>Wardrobe</span>
-                          </div>
-                          <div className={indexStyles.dropdownItem}>
-                            <div>
-                              <StaticImage alt='logo' src='../images/storage.png' className= {indexStyles.dropdownImage}/>
-                            </div>
-                            <span>Storage</span>
-                          </div>
-                          <div className={indexStyles.dropdownItem}>
-                            <div>
-                              <StaticImage alt='logo' src='../images/table.png' className= {indexStyles.dropdownImage}/>
-                            </div>
-                            <span>Table</span>
-                          </div>
-                          <div className={indexStyles.dropdownItem}>
-                            <div>
-                              <StaticImage alt='logo' src='../images/sofa.png' className= {indexStyles.dropdownImage}/>
-                            </div>
-                            <span>Sofa</span>
-                          </div>
-                          <div className={indexStyles.dropdownItem}>
-                            <div>
-                              <StaticImage alt='logo' src='../images/chair (2).png' className= {indexStyles.dropdownImage}/>
-                            </div>
-                            <span>Chair</span>
-                          </div>
-                          <div className={indexStyles.dropdownItem}>
-                            <div>
-                              <StaticImage alt='logo' src='../images/stand.png' className= {indexStyles.dropdownImage}/>
-                            </div>
-                            <span>Tv Stand </span>
-                          </div>
-                          <div className={indexStyles.dropdownItem}>
-                            <div>
-                              <StaticImage alt='logo' src='../images/wall.png' className= {indexStyles.dropdownImage}/>
-                            </div>
-                            <span>Wall Cladding</span>
-                          </div> */}
                       </div>
                   )}
             </div>
@@ -176,33 +123,6 @@ const Home =({data}) => {
           </div>
           <div>
             <div className= {indexStyles.productImageGrid}>
-            {/* <div className= {supportStyles.grid3Column }>
-                    { data?.allContentfulEduSupport.nodes.filter((node) => {
-                      if(category === '' || category === 'All') {
-                        return node
-                      } else if( node?.category[0].name.toLowerCase().includes(category.toLowerCase())) {
-                        return node
-                      } return false
-                    }).map((node, i) => (
-                        <div key={ node?.id } >
-                          <div className= {supportStyles.grid3ColumnflowImg}>
-                          <img 
-                           src={ node?.image.url } 
-                           alt="edusupport"
-                           className={supportStyles.grid3ColumnflowImage}
-                           />
-                          </div> 
-                                <div className= {supportStyles.grid3ColumnText}>
-                                    <h4>{ node?.title }</h4>
-                                    <h6>Category: { node?.category[0].name } </h6>
-                                    <p>Posted { convertDate(node?.createdAt) }</p>
-                                </div>
-                                <div className= {supportStyles.grid3ColumnButton}>
-                                <Link to={`/supports/${node.id}`}> <button>View</button></Link>
-                                </div>
-                        </div>
-                    ))}    
-                       </div>     */}
               {data?.allContentfulProduct.nodes.filter((node) => {
                   if (category === '' || category === 'All'){
                     return node
@@ -306,6 +226,7 @@ query Homepage {
         category {
           categoryName
         }
+      contentful_id
       id
       productColor
       productDescription {
@@ -333,6 +254,7 @@ query Homepage {
   }
 }
 `;
+
 export default Home
 
 export const Head = () => <Seo title="Home Page" />
