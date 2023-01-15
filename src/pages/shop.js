@@ -16,6 +16,7 @@ import "../../node_modules/bootstrap/dist/css/bootstrap.css";
 import Seo from '../components/seo'
 
 const Shopping = ({data}) =>{
+    const [ category, setCategory ] = useState('')
     const [isActive, SetIsActive] = useState(false)
     return (
       <Layout>
@@ -35,13 +36,20 @@ const Shopping = ({data}) =>{
                   </div>
                   {isActive && (
                       <div className={shoppingStyles.dropdownContent}>
+                          <button onClick={ () => setCategory('All') }>All</button>
+                        { data?.allContentfulCategory.nodes.map((node, i) => (
                           <div className={shoppingStyles.dropdownItem}>
-                            <div>
-                              <StaticImage alt='logo' src='../images/home.png' className= {shoppingStyles.dropdownImage}/>
-                            </div>
-                            <span>House</span>
+                          <div>
+                            <StaticImage alt='logo' src='../images/home.png' className= {shoppingStyles.dropdownImage}/>
                           </div>
-                          <div className={shoppingStyles.dropdownItem}>
+                          <span  key={ node?.id } 
+                           onClick={ () => setCategory(node?.categoryName) } 
+                           >
+                            { node?.categoryName }
+                          </span>
+                          </div>
+                        ))}
+                          {/* <div className={shoppingStyles.dropdownItem}>
                             <div>
                               <StaticImage alt='logo' src='../images/office.png' className= {shoppingStyles.dropdownImage}/>
                             </div>
@@ -88,7 +96,7 @@ const Shopping = ({data}) =>{
                               <StaticImage alt='logo' src='../images/wall.png' className= {shoppingStyles.dropdownImage}/>
                             </div>
                             <span>Wall Cladding</span>
-                          </div>
+                          </div> */}
                       </div>
                   )}
             </div>
@@ -112,25 +120,31 @@ const Shopping = ({data}) =>{
           </div>
           <div>
             <div className= {shoppingStyles.productImageGrid}>
-            {
-                data.allContentfulProduct.nodes.map(node =>( 
-                <div className= {shoppingStyles.productGridBox}>
-                <div className= {shoppingStyles.productGridBoxImageCon}>
-                <img 
-                  alt='productImage'
-                  src={ node?.productImage.url }
-                  className= {shoppingStyles.productGridBoxImage}
-                />
-                </div>
-                <h3 key={node.productName}>{node.productName}</h3>
-                <p key={node.productParagraph}>{node.productParagraph}</p>
-                  <div className= {shoppingStyles.productBoxGrid}>
-                    <h5 key={node.productPrice}>#{node.productPrice}</h5>
-                    <Link to = {`/index/${node.id}`}><h6>BUY NOW <span><BsArrowRight/></span></h6></Link>
-                  </div>
-              </div>
-                ))
-            }      
+            {data?.allContentfulProduct.nodes.filter((node) => {
+                  if (category === '' || category === 'All'){
+                    return node
+                  } else if( node?.category[0].categoryName.toLowerCase().includes(category.toLowerCase())) {
+                        return node
+                      } return false
+                }).map((node, i) => (
+                  <div key ={node?.id}>
+                    <div className= {shoppingStyles.productGridBox}>
+                    <div className= {shoppingStyles.productGridBoxImageCon}>
+                    <img 
+                      alt='productImage'
+                      src={ node?.productImage.url }
+                      className= {shoppingStyles.productGridBoxImage}
+                    />
+                    </div>
+                    <h3 key={node.productName}>{node.productName}</h3>
+                    <p key={node.productParagraph}>{node.productParagraph}</p>
+                      <div className= {shoppingStyles.productBoxGrid}>
+                        <h5 key={node.productPrice}>#{node.productPrice}</h5>
+                        <Link to = {`/index/${node.id}`}><h6>BUY NOW <span><BsArrowRight/></span></h6></Link>
+                      </div>
+                      </div>
+                      </div>
+                ))}      
             </div>
           </div>
           
@@ -148,24 +162,34 @@ const Shopping = ({data}) =>{
   }
 export const query = graphql`
 query Homepage {
-allContentfulProduct{
-  nodes {
-    id
-    productColor
-    productDescription {
-      raw
+  allContentfulProduct{
+    nodes {
+        category {
+          categoryName
+        }
+      contentful_id
+      id
+      productColor
+      productDescription {
+        raw
+      }
+      productImage {
+        url
+      }
+      productMaterial
+      productName
+      productParagraph
+      productPrice
+      productSeatingCapacity
+      productSize
     }
-    productImage {
-      url
-    }
-    productMaterial
-    productName
-    productParagraph
-    productPrice
-    productSeatingCapacity
-    productSize
   }
-}
+  allContentfulCategory {
+    nodes {
+      categoryName
+    }
+  }
+
 }
 `;
 
