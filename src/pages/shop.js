@@ -45,7 +45,7 @@ const Shopping = ({data}) =>{
                         { data?.allContentfulCategory.nodes.map((node, i) => (
                           <div className={shoppingStyles.dropdownItem}>
                           <div>
-                            <StaticImage alt='logo' src='../images/home.png' className= {shoppingStyles.dropdownImage}/>
+                          <img alt='logo' src={ node?.categoryImage.url } className= {shoppingStyles.dropdownImage}/>
                           </div>
                           <span  key={ node?.id } 
                            onClick={ () => setCategory(node?.categoryName) } 
@@ -192,6 +192,9 @@ query Homepage {
   allContentfulCategory {
     nodes {
       categoryName
+      categoryImage{
+        url
+      }
     }
   }
 
