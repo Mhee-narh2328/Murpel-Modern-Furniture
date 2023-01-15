@@ -36,7 +36,12 @@ const Shopping = ({data}) =>{
                   </div>
                   {isActive && (
                       <div className={shoppingStyles.dropdownContent}>
-                          <button onClick={ () => setCategory('All') }>All</button>
+                        <div className={shoppingStyles.dropdownItem}>
+                          <div>
+                            <StaticImage alt='logo' src= '../images/home.png' className= {shoppingStyles.dropdownImage}/>
+                          </div>
+                          <span onClick={ () => setCategory('All') }>All</span>
+                        </div>
                         { data?.allContentfulCategory.nodes.map((node, i) => (
                           <div className={shoppingStyles.dropdownItem}>
                           <div>
