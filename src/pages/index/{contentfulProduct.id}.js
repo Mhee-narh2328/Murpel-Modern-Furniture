@@ -49,9 +49,9 @@ const DescriptionPage = (props)=> {
                             />
                         </div>
                         <div className={descriptionStyles.descriptionImages}>
-                            <StaticImage src="../../images/back.png" />
-                            <StaticImage src="../../images/side.png" />
-                            <StaticImage src="../../images/left.png" />
+                            <img  src={props.data.contentfulProduct.productImage.url}/>
+                            <img  src={props.data.contentfulProduct.productImage.url}/>
+                            <img  src={props.data.contentfulProduct.productImage.url}/>
                         </div>
                     </div>
                     <div className={descriptionStyles.descriptionContainerContent}>
@@ -148,24 +148,23 @@ const DescriptionPage = (props)=> {
                                
                             },
                         }}>
-
+                        { props?.data.allContentfulProduct.nodes.map((node, i) => (
                         <SwiperSlide >
                         <div className={descriptionStyles.similarProducts}>
                             <div className={descriptionStyles.productGridBoxImageCon}>
-                                <StaticImage
+                                <img
                                     alt="logo"
-                                    src="../../images/Table lamp.png"
+                                    src={ node?.productImage.url }
                                     className={descriptionStyles.productGridBoxImage}
                                 />
                             </div>
-                            <h3>Table Pamp</h3>
+                            <h3>{node.productName}</h3>
                             <p>
-                                Armchair in scandinaviaolstered with fabric Miss pattern buttons
-                                legs in natural wood.
+                                {node.productParagraph}
                             </p>
                             <div className={descriptionStyles.productBoxGrid}>
-                                <h5>#10,000</h5>
-                                <Link to="/">
+                                <h5>{node.productPrice}</h5>
+                                <Link to="">
                                     <h6>
                                         BUY NOW{" "}
                                         <span>
@@ -176,177 +175,7 @@ const DescriptionPage = (props)=> {
                             </div>
                         </div>
                         </SwiperSlide>
-
-                        <SwiperSlide>
-                        <div className={descriptionStyles.similarProducts}>
-                            <div className={descriptionStyles.productGridBoxImageCon}>
-                                <StaticImage
-                                    alt="logo"
-                                    src="../../images/Bedside table (1).png"
-                                    className={descriptionStyles.productGridBoxImage}
-                                />
-                            </div>
-                            <h3>Bedside Table</h3>
-                            <p>
-                                Armchair in scandinaviaolstered with fabric Miss pattern buttons
-                                legs in natural wood.
-                            </p>
-                            <div className={descriptionStyles.productBoxGrid}>
-                                <h5>#20,000</h5>
-                                <Link to="/">
-                                    <h6>
-                                        BUY NOW{" "}
-                                        <span>
-                                            <BsArrowRight />
-                                        </span>
-                                    </h6>
-                                </Link>
-                            </div>
-                        </div>
-                        </SwiperSlide>
-
-                        <SwiperSlide>
-                        <div className={descriptionStyles.similarProducts}>
-                            <div className={descriptionStyles.productGridBoxImageCon}>
-                                <StaticImage
-                                    alt="logo"
-                                    src="../../images/Tea table.png"
-                                    className={descriptionStyles.productGridBoxImage}
-                                />
-                            </div>
-                            <h3>Sofa Dark</h3>
-                            <p>
-                                Armchair in scandinaviaolstered with fabric Miss pattern buttons
-                                legs in natural wood.
-                            </p>
-                            <div className={descriptionStyles.productBoxGrid}>
-                                <h5>#20,000</h5>
-                                <Link to="/">
-                                    <h6>
-                                        BUY NOW{" "}
-                                        <span>
-                                            <BsArrowRight />
-                                        </span>
-                                    </h6>
-                                </Link>
-                            </div>
-                        </div>
-                        </SwiperSlide>
-
-                        <SwiperSlide>
-                        <div className={descriptionStyles.similarProducts}>
-                            <div className={descriptionStyles.productGridBoxImageCon}>
-                                <StaticImage
-                                    alt="logo"
-                                    src="../../images/Chair.png"
-                                    className={descriptionStyles.productGridBoxImage}
-                                />
-                            </div>
-                            <h3>Kody Handchair</h3>
-                            <p>
-                                Armchair in scandinaviaolstered with fabric Miss pattern buttons
-                                legs in natural wood.
-                            </p>
-                            <div className={descriptionStyles.productBoxGrid}>
-                                <h5>#20,000</h5>
-                                <Link to="/">
-                                    <h6>
-                                        BUY NOW{" "}
-                                        <span>
-                                            <BsArrowRight />
-                                        </span>
-                                    </h6>
-                                </Link>
-                            </div>
-                        </div>
-                        </SwiperSlide>
-
-
-                        <SwiperSlide>
-                        <div className={descriptionStyles.similarProducts}>
-                            <div className={descriptionStyles.productGridBoxImageCon}>
-                                <StaticImage
-                                    alt="logo"
-                                    src="../../images/stool.png"
-                                    className={descriptionStyles.productGridBoxImage}
-                                />
-                            </div>
-                            <h3>Stool</h3>
-                            <p>
-                                Armchair in scandinaviaolstered with fabric Miss pattern buttons
-                                legs in natural wood.
-                            </p>
-                            <div className={descriptionStyles.productBoxGrid}>
-                                <h5>#20,000</h5>
-                                <Link to="/">
-                                    <h6>
-                                        BUY NOW{" "}
-                                        <span>
-                                            <BsArrowRight />
-                                        </span>
-                                    </h6>
-                                </Link>
-                            </div>
-                        </div>
-                        </SwiperSlide>
-
-
-                        <SwiperSlide>
-                        <div className={descriptionStyles.similarProducts}>
-                            <div className={descriptionStyles.productGridBoxImageCon}>
-                                <StaticImage
-                                    alt="logo"
-                                    src="../../images/Sofa black (1).png"
-                                    className={descriptionStyles.productGridBoxImage}
-                                />
-                            </div>
-                            <h3>Chair</h3>
-                            <p>
-                                Armchair in scandinaviaolstered with fabric Miss pattern buttons
-                                legs in natural wood.
-                            </p>
-                            <div className={descriptionStyles.productBoxGrid}>
-                                <h5>#20,000</h5>
-                                <Link to="/">
-                                    <h6>
-                                        BUY NOW{" "}
-                                        <span>
-                                            <BsArrowRight />
-                                        </span>
-                                    </h6>
-                                </Link>
-                            </div>
-                        </div>
-                        </SwiperSlide>
-
-
-                        <SwiperSlide>
-                        <div className={descriptionStyles.similarProducts}>
-                            <div className={descriptionStyles.productGridBoxImageCon}>
-                                <StaticImage
-                                    alt="logo"
-                                    src="../../images/Right.png"
-                                    className={descriptionStyles.productGridBoxImage}
-                                />
-                            </div>
-                            <h3>Soft Chair</h3>
-                            <p>
-                                Armchair in scandinaviaolstered with fabric Miss pattern buttons
-                                legs in natural wood.
-                            </p>
-                            <div className={descriptionStyles.productBoxGrid}>
-                                <h5>#20,000</h5>
-                                <Link to="/">
-                                    <h6>
-                                        BUY NOW{" "}
-                                        <span>
-                                            <BsArrowRight />
-                                        </span>
-                                    </h6>
-                                </Link>
-                            </div>
-                        </div>
-                        </SwiperSlide>
+                    )) }
                     </Swiper>
 
                     
@@ -373,6 +202,18 @@ query ($id: String){
         url
       }
     }
+    allContentfulProduct(filter: {createdAt: {lt: "TODAY"}}) {
+        nodes {
+          id
+          productName
+          productPrice
+          productParagraph
+          createdAt
+          productImage {
+            url
+          }
+        }
+      }
   }
 `;
 

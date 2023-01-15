@@ -87,7 +87,7 @@ const Home =({data}) => {
                   {isActive && (
                        
                       <div className={indexStyles.dropdownContent}>
-                        {/* <button onClick={ () => setCategory('All') }>All</button> */}
+                        <button onClick={ () => setCategory('All') }>All</button>
                         { data?.allContentfulCategory.nodes.map((node, i) => (
                           <div className={indexStyles.dropdownItem}>
                           <div>
