@@ -87,11 +87,16 @@ const Home =({data}) => {
                   {isActive && (
                        
                       <div className={indexStyles.dropdownContent}>
-                        <button onClick={ () => setCategory('All') }>All</button>
+                        <div className={indexStyles.dropdownItem}>
+                          <div>
+                            <StaticImage alt='logo' src= '../images/home.png' className= {indexStyles.dropdownImage}/>
+                          </div>
+                          <span onClick={ () => setCategory('All') }>All</span>
+                        </div>
                         { data?.allContentfulCategory.nodes.map((node, i) => (
                           <div className={indexStyles.dropdownItem}>
                           <div>
-                            <StaticImage alt='logo' src='../images/home.png' className= {indexStyles.dropdownImage}/>
+                            <img alt='logo' src={ node?.categoryImage.url } className= {indexStyles.dropdownImage}/>
                           </div>
                           <span  key={ node?.id } 
                            onClick={ () => setCategory(node?.categoryName) } 
@@ -250,6 +255,9 @@ query Homepage {
   allContentfulCategory {
     nodes {
       categoryName
+      categoryImage{
+        url
+      }
     }
   }
 }
