@@ -21,6 +21,7 @@ import Seo from '../components/seo'
 
 const Home =({data}) => {
   const [ category, setCategory ] = useState('')
+  const [ priceRange, setPriceRange] = useState('')
   const [isActive, SetIsActive] = useState(false)
   console.log(category)
   return (
@@ -116,12 +117,13 @@ const Home =({data}) => {
                   </div>
                   {isActive && (
                     <div className={indexStyles.dropdownContent}>
-                      <div className={indexStyles.dropdownItem}><input type= "radio"/>Under 50,000</div>
-                      <div className={indexStyles.dropdownItem}><input type= "radio"/>50,000-100,000</div>
-                      <div className={indexStyles.dropdownItem}><input type= "radio"/>100,000-150,000</div>
-                      <div className={indexStyles.dropdownItem}><input type= "radio"/>150,000-200,000</div>
-                      <div className={indexStyles.dropdownItem}><input type= "radio"/>200,000-250,000</div>
-                      <div className={indexStyles.dropdownItem}><input type= "radio"/>Over 250,000</div>
+                      { data?.allContentfulPriceRange.nodes.map((node, i) => (
+                          <div className={indexStyles.dropdownItem}>
+                            <input type= "radio"
+                            key={ node?.id } 
+                            onClick={ () => setPriceRange(node?.priceRange) } /> { node?.priceRange }
+                            </div>
+                        ))}
                     </div>
                   )}
             </div>
@@ -240,9 +242,8 @@ query Homepage {
       productImage {
         url
       }
-
-      productImage1{
-        url
+      priceRange {
+        priceRange
       }
       productMaterial
       productName
@@ -252,12 +253,17 @@ query Homepage {
       productSize
     }
   }
-  allContentfulCategory {
+  allContentfulCategory(limit: 10) {
     nodes {
       categoryName
       categoryImage{
         url
       }
+    }
+  }
+  allContentfulPriceRange(limit :6) {
+    nodes {
+      priceRange
     }
   }
 }

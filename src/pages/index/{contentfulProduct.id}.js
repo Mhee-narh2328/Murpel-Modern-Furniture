@@ -49,9 +49,9 @@ const DescriptionPage = (props)=> {
                             />
                         </div>
                         <div className={descriptionStyles.descriptionImages}>
-                            <img  src={props.data.contentfulProduct.productImage.url}/>
-                            <img  src={props.data.contentfulProduct.productImage.url}/>
-                            <img  src={props.data.contentfulProduct.productImage.url}/>
+                            <img  src={props.data.contentfulProduct.productImage.url}   className={descriptionStyles.descriptionImage}/>
+                            <img  src={props.data.contentfulProduct.productImage.url}  className={descriptionStyles.descriptionImage}/>
+                            <img  src={props.data.contentfulProduct.productImage.url}  className={descriptionStyles.descriptionImage}/>
                         </div>
                     </div>
                     <div className={descriptionStyles.descriptionContainerContent}>

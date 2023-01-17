@@ -422,7 +422,7 @@ layout{
     gap: 2rem;
 }
 
-.descriptionImages{
+.descriptionImage{
     width: 105px;
     object-fit: contain;
 }
