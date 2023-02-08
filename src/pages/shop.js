@@ -54,54 +54,7 @@ const Shopping = ({data}) =>{
                           </span>
                           </div>
                         ))}
-                          {/* <div className={shoppingStyles.dropdownItem}>
-                            <div>
-                              <StaticImage alt='logo' src='../images/office.png' className= {shoppingStyles.dropdownImage}/>
-                            </div>
-                            <span>Office</span>
-                          </div>
-                          <div className={shoppingStyles.dropdownItem}>
-                            <div>
-                              <StaticImage alt='logo' src='../images/wardrobe.png' className= {shoppingStyles.dropdownImage}/>
-                            </div>
-                            <span>Wardrobe</span>
-                          </div>
-                          <div className={shoppingStyles.dropdownItem}>
-                            <div>
-                              <StaticImage alt='logo' src='../images/storage.png' className= {shoppingStyles.dropdownImage}/>
-                            </div>
-                            <span>Storage</span>
-                          </div>
-                          <div className={shoppingStyles.dropdownItem}>
-                            <div>
-                              <StaticImage alt='logo' src='../images/table.png' className= {shoppingStyles.dropdownImage}/>
-                            </div>
-                            <span>Table</span>
-                          </div>
-                          <div className={shoppingStyles.dropdownItem}>
-                            <div>
-                              <StaticImage alt='logo' src='../images/sofa.png' className= {shoppingStyles.dropdownImage}/>
-                            </div>
-                            <span>Sofa</span>
-                          </div>
-                          <div className={shoppingStyles.dropdownItem}>
-                            <div>
-                              <StaticImage alt='logo' src='../images/chair (2).png' className= {shoppingStyles.dropdownImage}/>
-                            </div>
-                            <span>Chair</span>
-                          </div>
-                          <div className={shoppingStyles.dropdownItem}>
-                            <div>
-                              <StaticImage alt='logo' src='../images/stand.png' className= {shoppingStyles.dropdownImage}/>
-                            </div>
-                            <span>Tv Stand </span>
-                          </div>
-                          <div className={shoppingStyles.dropdownItem}>
-                            <div>
-                              <StaticImage alt='logo' src='../images/wall.png' className= {shoppingStyles.dropdownImage}/>
-                            </div>
-                            <span>Wall Cladding</span>
-                          </div> */}
+                          
                       </div>
                   )}
             </div>
@@ -137,7 +90,7 @@ const Shopping = ({data}) =>{
                     <div className= {shoppingStyles.productGridBoxImageCon}>
                     <img 
                       alt='productImage'
-                      src={ node?.productImage.url }
+                      src={ node?.productImage1.url }
                       className= {shoppingStyles.productGridBoxImage}
                     />
                     </div>
@@ -169,16 +122,26 @@ export const query = graphql`
 query Homepage {
   allContentfulProduct{
     nodes {
-        category {
-          categoryName
-        }
-      contentful_id
+      category {
+        categoryName
+        contentful_id
+        id
+      }
       id
       productColor
       productDescription {
         raw
       }
-      productImage {
+      productImage1 {
+        url
+      }
+      productImage2 {
+        url
+      }
+      productImage3 {
+        url
+      }
+      productImage4 {
         url
       }
       productMaterial
@@ -187,6 +150,9 @@ query Homepage {
       productPrice
       productSeatingCapacity
       productSize
+      priceRange {
+        priceRange
+      }
     }
   }
   allContentfulCategory {

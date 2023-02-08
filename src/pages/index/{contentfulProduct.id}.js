@@ -44,14 +44,14 @@ const DescriptionPage = (props)=> {
                     <div className={descriptionStyles.descriptionContainer}>
                         <div>
                             <img
-                                src={props.data.contentfulProduct.productImage.url}
+                                src={props.data.contentfulProduct.productImage1.url}
                                 className={descriptionStyles.descriptionContainerImage}
                             />
                         </div>
                         <div className={descriptionStyles.descriptionImages}>
-                            <img  src={props.data.contentfulProduct.productImage.url}   className={descriptionStyles.descriptionImage}/>
-                            <img  src={props.data.contentfulProduct.productImage.url}  className={descriptionStyles.descriptionImage}/>
-                            <img  src={props.data.contentfulProduct.productImage.url}  className={descriptionStyles.descriptionImage}/>
+                            <img  src={props.data.contentfulProduct.productImage2.url}   className={descriptionStyles.descriptionImage}/>
+                            <img  src={props.data.contentfulProduct.productImage3.url}  className={descriptionStyles.descriptionImage}/>
+                            <img  src={props.data.contentfulProduct.productImage4.url}  className={descriptionStyles.descriptionImage}/>
                         </div>
                     </div>
                     <div className={descriptionStyles.descriptionContainerContent}>
@@ -164,7 +164,7 @@ const DescriptionPage = (props)=> {
                             <div className={descriptionStyles.productGridBoxImageCon}>
                                 <img
                                     alt="logo"
-                                    src={ node?.productImage.url }
+                                    src={ node?.productImage1.url }
                                     className={descriptionStyles.productGridBoxImage}
                                 />
                             </div>
@@ -208,7 +208,16 @@ query ($id: String){
       productDescription {
         raw
       }
-      productImage {
+      productImage1 {
+        url
+      }
+      productImage2 {
+        url
+      }
+      productImage3{
+        url
+      }
+      productImage4{
         url
       }
     }
@@ -219,7 +228,7 @@ query ($id: String){
           productPrice
           productParagraph
           createdAt
-          productImage {
+          productImage1 {
             url
           }
         }

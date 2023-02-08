@@ -142,7 +142,7 @@ const Home =({data}) => {
                     <div className= {indexStyles.productGridBoxImageCon}>
                     <img 
                       alt='productImage'
-                      src={ node?.productImage.url }
+                      src={ node?.productImage1.url }
                       className= {indexStyles.productGridBoxImage}
                     />
                     </div>
@@ -228,22 +228,29 @@ const Home =({data}) => {
 }
 export const query = graphql`
 query Homepage {
-  allContentfulProduct(limit: 9) {
+  allContentfulProduct(limit :9) {
     nodes {
-        category {
-          categoryName
-        }
-      contentful_id
+      category {
+        categoryName
+        contentful_id
+        id
+      }
       id
       productColor
       productDescription {
         raw
       }
-      productImage {
+      productImage1 {
         url
       }
-      priceRange {
-        priceRange
+      productImage2 {
+        url
+      }
+      productImage3 {
+        url
+      }
+      productImage4 {
+        url
       }
       productMaterial
       productName
@@ -251,7 +258,11 @@ query Homepage {
       productPrice
       productSeatingCapacity
       productSize
+      priceRange {
+        priceRange
+      }
     }
+  
   }
   allContentfulCategory(limit: 10) {
     nodes {

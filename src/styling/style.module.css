@@ -243,6 +243,7 @@ layout{
     text-transform: uppercase;
     color: #FE5E00;
     text-decoration: none;
+    padding: 0;
 }
 
 .productBoxGrid h6 span{
