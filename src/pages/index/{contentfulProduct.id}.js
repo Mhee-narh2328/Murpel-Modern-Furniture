@@ -62,22 +62,32 @@ const DescriptionPage = (props)=> {
                         <div
                             className={descriptionStyles.descriptionContainerContentImages}
                         >
-                            <StaticImage
-                                src="../../images/whatsapp.png"
-                                className={descriptionStyles.descriptionContainerContentImage}
-                            />
-                            <StaticImage
-                                src="../../images/instagram.png"
-                                className={descriptionStyles.descriptionContainerContentImage}
-                            />
+                            <Link to ="https://wa.link/chnxm1" target="_blank">
+                                <StaticImage
+                                    src="../../images/whatsapp.png"
+                                    className={descriptionStyles.descriptionContainerContentImage}
+                                />
+                            </Link>
+                            
+                            <Link to = "https://ig.me/m/murpelmodernfurniture" target= "_blank">
+                                <StaticImage
+                                    src="../../images/instagram.png"
+                                    className={descriptionStyles.descriptionContainerContentImage}
+                                />
+                            </Link>
+
                             <StaticImage
                                 src="../../images/phone.png"
                                 className={descriptionStyles.descriptionContainerContentImage}
                             />
-                            <StaticImage
-                                src="../../images/gmail.png"
-                                className={descriptionStyles.descriptionContainerContentImage}
-                            />
+
+                            <Link >
+                                <StaticImage
+                                    src="../../images/gmail.png"
+                                    className={descriptionStyles.descriptionContainerContentImage}
+                                />
+                            </Link>
+                            
                         </div>
                     </div>
                 </div>

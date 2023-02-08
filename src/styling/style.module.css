@@ -4,10 +4,6 @@
     box-sizing: border-box;
     border: 0;
 }
-/* 
-body{
-    background-color: pink;
-} */
 
 section{
     margin: 0 4rem;
@@ -236,6 +232,7 @@ layout{
     color: #FE5E00;
 }
 
+.productBoxGrid a,
 .productBoxGrid h6{
     font-family: 'DM Sans';
     font-style: normal;
@@ -245,6 +242,7 @@ layout{
     letter-spacing: 1px;
     text-transform: uppercase;
     color: #FE5E00;
+    text-decoration: none;
 }
 
 .productBoxGrid h6 span{
@@ -423,7 +421,8 @@ layout{
 }
 
 .descriptionImage{
-    width: 105px;
+    width: 120px;
+    height: 100px;
     object-fit: contain;
 }
 
@@ -606,11 +605,9 @@ layout{
     margin-top: 2px;
 }
 
-/* .dropdown .dropdownContent .dropdownItem:hover{
-    background: #fcfcfc;
-    color: #FE5E00;
-
-} */
+.dropdownItem {
+   fill: #656689;
+}
 .similarProducts{
     background: #ffff;
     box-shadow:0px 4px 4px rgba(255, 255, 255, 0.25);

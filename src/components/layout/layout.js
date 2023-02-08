@@ -28,7 +28,7 @@ export default function Layout({pageTitle, children }) {
         <header>
             <div className={navbar}>
                <div>
-                  <h2>Murpel Modern Furniture</h2>
+                  <h2> <Link to = "/">Murpel Modern Furniture</Link></h2>
                </div>
                <div className={nav}>
                 <ul className= {navList}>
