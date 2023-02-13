@@ -7,6 +7,8 @@ import{navbar,
         icons,
         footer} from'./layout.module.css'
 import { StaticImage } from "gatsby-plugin-image"
+import { useState } from "react";
+import {FaBars}  from "react-icons/fa"
 import {AiOutlineInstagram}  from "react-icons/ai"
 import {SlSocialTwitter} from "react-icons/sl"
 import {HiOutlinePhone} from "react-icons/hi"
@@ -22,6 +24,7 @@ export default function Layout({pageTitle, children }) {
   //     }
   //   }
   //   `)
+  const [isNavExpanded, setIsNavExpanded] = useState(false)
   return (
     <div className={container}>
       {/* <header  className={siteTitle}>{data.site.siteMetadata.title}</header> */}
@@ -30,6 +33,13 @@ export default function Layout({pageTitle, children }) {
                <div>
                   <h2> <Link to = "/">Murpel Modern Furniture</Link></h2>
                </div>
+               <button className={mobilemenu} onClick={() => {
+                setIsNavExpanded(!isNavExpanded);
+               }}
+               >
+                {/* icon from react icons */}
+                <FaBars/>
+               </button>
                <div className={nav}>
                 <ul className= {navList}>
                     <Link to ="/" className={navItems} >Home</Link>

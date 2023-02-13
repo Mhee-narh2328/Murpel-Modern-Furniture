@@ -79,6 +79,19 @@
     text-decoration: none;
 }
 
+.mobilemenu{
+    border:0;
+    height:40px;
+    width: 40px;
+    padding:0.5rem;
+   cursor: pointer;
+   transition: 0.2s ease-in-out;
+   position: absolute;
+   top: 50%;
+   right: 25px;
+   transform: translateY(-50%);
+   display: none;
+}
 /* .nav-items:hover,
 .nav-items:active{
     
@@ -125,3 +138,13 @@
     color: #FFFFFF;
     margin-top: 2rem;
 }
+
+/* media query */
+@media screen and (max-width:550px){
+    .mobilemenu{
+        display: block;
+    }
+    
+   
+        
+    }
