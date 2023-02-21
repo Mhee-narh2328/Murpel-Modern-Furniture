@@ -19,11 +19,33 @@ import "../../node_modules/bootstrap/dist/css/bootstrap.css";
 
 import Seo from '../components/seo'
 
+import { renderRichText } from 'gatsby-source-contentful/rich-text'
+import { INLINES, BLOCKS, MARKS } from '@contentful/rich-text-types'
+
+const options = {
+    renderMark: {
+      [MARKS.BOLD]: (text) => <b className="font-bold">{text}</b>,
+    },
+    renderNode: {
+      [INLINES.HYPERLINK]: (node, children) => {
+        const { uri } = node.data
+        return (
+          <a href={uri} className="underline">
+            {children}
+          </a>
+        )
+      },
+      [BLOCKS.HEADING_2]: (node, children) => {
+        return <h2>{children}</h2>
+      },
+    },
+  }
+
 const Home =({data}) => {
   const [ category, setCategory ] = useState('')
   const [ priceRange, setPriceRange] = useState('')
   const [isActive, SetIsActive] = useState(false)
-  console.log(category)
+  
   return (
     <Layout>
       <section>
@@ -183,42 +205,14 @@ const Home =({data}) => {
           <h1>Frequently Asked <span>Questions</span> (FAQs)</h1>
           <div>
           <Accordion defaultActiveKey="0" flush variant="outline-light">
-            <Accordion.Item eventKey="0">
-              <Accordion.Header><strong>How can I pay for my order?</strong></Accordion.Header>
+            { data?.allContentfulAccordion.nodes.map((node, i) => (
+              <Accordion.Item eventKey={node.accordionId}>
+              <Accordion.Header><strong>{node.header}</strong></Accordion.Header>
               <Accordion.Body>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                aliquip ex ea commodo consequat. Duis aute irure dolor in
-                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                culpa qui officia deserunt mollit anim id est laborum.
+                {node.accordionParagraph.accordionParagraph}
               </Accordion.Body>
             </Accordion.Item>
-            <Accordion.Item eventKey="1">
-              <Accordion.Header><strong>Can I pay by bank transfer?</strong></Accordion.Header>
-              <Accordion.Body>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                aliquip ex ea commodo consequat. Duis aute irure dolor in
-                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                culpa qui officia deserunt mollit anim id est laborum.
-              </Accordion.Body>
-            </Accordion.Item>
-            <Accordion.Item eventKey="2">
-              <Accordion.Header><strong>How will i get my order</strong></Accordion.Header>
-              <Accordion.Body>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                aliquip ex ea commodo consequat. Duis aute irure dolor in
-                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                culpa qui officia deserunt mollit anim id est laborum.
-              </Accordion.Body>
-            </Accordion.Item>
+            ))}
           </Accordion>
           </div>
         </div>
@@ -263,6 +257,16 @@ query Homepage {
       }
     }
   
+  }
+  allContentfulAccordion(limit: 5){
+    nodes {
+      accordionId
+      header
+      id
+      accordionParagraph {
+        accordionParagraph
+      }
+    }
   }
   allContentfulCategory(limit: 10) {
     nodes {
