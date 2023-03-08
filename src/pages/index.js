@@ -139,13 +139,12 @@ const Home =({data}) => {
                   </div>
                   {isActive && (
                     <div className={indexStyles.dropdownContent}>
-                      { data?.allContentfulPriceRange.nodes.map((node, i) => (
-                          <div className={indexStyles.dropdownItem}>
-                            <input type= "radio"
-                            key={ node?.id } 
-                            onClick={ () => setPriceRange(node?.priceRange) } /> { node?.priceRange }
-                            </div>
-                        ))}
+                      <div className={indexStyles.dropdownItem}><input type= "radio"/>Under 50,000</div>
+                      <div className={indexStyles.dropdownItem}><input type= "radio"/>50,000-100,000</div>
+                      <div className={indexStyles.dropdownItem}><input type= "radio"/>100,000-150,000</div>
+                      <div className={indexStyles.dropdownItem}><input type= "radio"/>150,000-200,000</div>
+                      <div className={indexStyles.dropdownItem}><input type= "radio"/>200,000-250,000</div>
+                      <div className={indexStyles.dropdownItem}><input type= "radio"/>Over 250,000</div>
                     </div>
                   )}
             </div>
@@ -252,9 +251,6 @@ query Homepage {
       productPrice
       productSeatingCapacity
       productSize
-      priceRange {
-        priceRange
-      }
     }
   
   }
@@ -274,11 +270,6 @@ query Homepage {
       categoryImage{
         url
       }
-    }
-  }
-  allContentfulPriceRange(limit :6) {
-    nodes {
-      priceRange
     }
   }
 }

@@ -150,9 +150,6 @@ query Homepage {
       productPrice
       productSeatingCapacity
       productSize
-      priceRange {
-        priceRange
-      }
     }
   }
   allContentfulCategory {
