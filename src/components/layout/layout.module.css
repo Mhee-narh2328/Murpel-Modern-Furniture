@@ -125,3 +125,37 @@
     color: #FFFFFF;
     margin-top: 2rem;
 }
+
+
+@media (max-width: 768px) {
+    .nav-list{
+        display: none;
+    }
+
+    .menu-close {
+        display: block;
+    }
+
+    ul{
+        list-style: none;
+    }
+
+    a{
+        text-decoration: none;
+    }
+
+    .nav-list{
+        display: none;
+    }
+
+    .navbar{
+        margin: 0;
+        display: flex;
+        margin-left: 25px;
+    }
+
+    .navbar h2{
+        font-size: 16px;
+    }
+}
+

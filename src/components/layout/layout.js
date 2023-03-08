@@ -22,6 +22,8 @@ export default function Layout({pageTitle, children }) {
   //     }
   //   }
   //   `)
+
+
   return (
     <div className={container}>
       {/* <header  className={siteTitle}>{data.site.siteMetadata.title}</header> */}
@@ -35,7 +37,6 @@ export default function Layout({pageTitle, children }) {
                     <Link to ="/" className={navItems} >Home</Link>
                     <Link to = "/shop" className={navItems}>Shop</Link>
                     <Link to="" className={navItems}>About</Link>
-
                 </ul>
                </div>
                <div>
