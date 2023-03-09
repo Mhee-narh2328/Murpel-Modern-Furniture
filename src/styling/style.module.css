@@ -983,8 +983,4 @@ input[type="radio"] {
         gap: 0.5rem;
         margin-bottom: 1rem;
      }
-
-     .swiper-button-prev{
-        left: 5% !important;
-     }
  }
