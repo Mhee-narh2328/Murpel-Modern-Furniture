@@ -651,7 +651,7 @@ input[type="radio"] {
 
 @media (max-width: 1024px) {
     section{
-     margin: 0 !important;
+     margin: 0 ;
     }
 
     .heroContentGrid p{
@@ -697,7 +697,7 @@ input[type="radio"] {
      }
 
      section{
-         margin: 0;
+         margin: 0 ;
      }
 
      .descriptionSection{
@@ -983,4 +983,24 @@ input[type="radio"] {
         gap: 0.5rem;
         margin-bottom: 1rem;
      }
+ }
+ @media (max-width: 480px) {
+    section{
+        margin: 0 1.5rem;
+    } 
+
+    .productBoxGrid h5 {
+        font-size: 10px;
+    }
+
+    .productBoxGrid h6{
+        font-size: 9px;
+    }
+    .productBoxGrid {
+        gap: 0.5rem;
+    }
+    .accordionContainer h1 {
+        font-size: 15px;
+        margin: 1rem 0;
+    }
  }
