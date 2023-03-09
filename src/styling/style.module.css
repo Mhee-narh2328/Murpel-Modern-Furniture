@@ -765,8 +765,17 @@ input[type="radio"] {
      .serviceGridImg{
          width: 25px;
          height: 25px;
-         margin-top: 0.5rem;
+         margin-top: 0rem;
      }
+
+     .serviceGrid{
+        background-color: #ffff;
+        padding: 1rem 0.5rem;
+        margin: 2rem ;
+        gap: 1rem;
+        border-radius: 25px;
+        box-shadow: 0px 3.5px 10.5px -7.875px rgba(0, 0, 0, 0.25);
+    }
 
      .serviceGridBlue{
          grid-template-columns: 0fr 1fr;
@@ -774,7 +783,8 @@ input[type="radio"] {
          padding: 0rem;
          margin-left: 16px;
          background: #fff;
-         box-shadow: 0px 3.5px 10.5px -7.875px rgba(0, 0, 0, 0.25);
+         box-shadow: none;
+         /* box-shadow: 0px 3.5px 10.5px -7.875px rgba(0, 0, 0, 0.25); */
      }
 
      .serviceGridRed{
@@ -782,7 +792,7 @@ input[type="radio"] {
          gap: 0rem;
          padding: 0rem;
          background: #fff;
-         box-shadow: 0px 3.5px 10.5px -7.875px rgba(0, 0, 0, 0.25);
+         box-shadow: none;
          border-radius: 0;
      }
 
@@ -792,7 +802,7 @@ input[type="radio"] {
          padding: 0rem;
          margin-right: 16px;
          background: #fff;
-         box-shadow: 0px 3.5px 10.5px -7.875px rgba(0, 0, 0, 0.25);
+         box-shadow: none;
      }
 
      .serviceGridContentBlue{
@@ -813,7 +823,7 @@ input[type="radio"] {
      .serviceGridContentBlue h4,
      .serviceGridContentRed h4,
      .serviceGridContentYellow h4{
-         font-size: 12px;
+         font-size: 10px;
          line-height: 14px;
          margin-bottom: 0.2rem;
      }
@@ -823,6 +833,7 @@ input[type="radio"] {
      .serviceGridContentYellow p{
          line-height: 12px;
          margin-bottom: 0rem;
+         font-size: 9px;
      }
      
      .searchInput{
@@ -1003,4 +1014,21 @@ input[type="radio"] {
         font-size: 15px;
         margin: 1rem 0;
     }
+
+    .serviceGrid{
+        padding: 1rem 0rem;
+        margin: 2rem 0rem;
+    }
+    .serviceGridContentBlue h4,
+     .serviceGridContentRed h4,
+     .serviceGridContentYellow h4{
+         font-size: 9px;
+     }
+
+     .serviceGridContentBlue p,
+     .serviceGridContentRed p,
+     .serviceGridContentYellow p{
+         font-size: 8px;
+     }
+    
  }
