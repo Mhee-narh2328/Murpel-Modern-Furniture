@@ -1,4 +1,6 @@
 import React from "react"
+import { slide as Menu } from 'react-burger-menu';
+import { useMediaQuery } from "react-responsive";
 import{navbar,
         nav,
         container,
@@ -12,7 +14,19 @@ import {SlSocialTwitter} from "react-icons/sl"
 import {HiOutlinePhone} from "react-icons/hi"
 import {FiFacebook} from "react-icons/fi"
 import { Link , useStaticQuery, graphql} from "gatsby"
-export default function Layout({pageTitle, children }) {
+
+// function MobileMenu() {
+//   return (
+//     <Menu>
+//       <a className="menu-item" href="/">Home</a>   
+//       <a className="menu-item" href="/shop">Shop</a>   
+//       <a className="menu-item" href="">About</a>
+//     </Menu>
+//   )
+// }
+
+export default function Layout({pageTitle, children}) {
+  // const isMobile = useMediaQuery({ maxWidth: 765 })
   // const data = useStaticQuery(graphql`
   //   query {
   //     site {
@@ -22,7 +36,6 @@ export default function Layout({pageTitle, children }) {
   //     }
   //   }
   //   `)
-
 
   return (
     <div className={container}>
@@ -38,6 +51,7 @@ export default function Layout({pageTitle, children }) {
                     <Link to = "/shop" className={navItems}>Shop</Link>
                     <Link to="" className={navItems}>About</Link>
                 </ul>
+                {/* {isMobile && <MobileMenu />} */}
                </div>
                <div>
                <StaticImage 
