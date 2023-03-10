@@ -182,7 +182,7 @@ const Home = ({ data }) => {
                 return false;
               }).filter((node) => {
                 if (priceFilter === null) {
-                  return true;
+                  return node;
                 } else {
                   const minPrice = (priceFilter - 1) * 50000 + 1;
                   const maxPrice = priceFilter * 50000;
