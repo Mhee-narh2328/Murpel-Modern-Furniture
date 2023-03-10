@@ -19,24 +19,24 @@ import 'swiper/css/navigation';
 
 const options = {
     renderMark: {
-      [MARKS.BOLD]: (text) => <b className="font-bold">{text}</b>,
+        [MARKS.BOLD]: (text) => <b className="font-bold">{text}</b>,
     },
     renderNode: {
-      [INLINES.HYPERLINK]: (node, children) => {
-        const { uri } = node.data
-        return (
-          <a href={uri} className="underline">
-            {children}
-          </a>
-        )
-      },
-      [BLOCKS.HEADING_2]: (node, children) => {
-        return <h2>{children}</h2>
-      },
+        [INLINES.HYPERLINK]: (node, children) => {
+            const { uri } = node.data
+            return (
+                <a href={uri} className="underline">
+                    {children}
+                </a>
+            )
+        },
+        [BLOCKS.HEADING_2]: (node, children) => {
+            return <h2>{children}</h2>
+        },
     },
-  }
+}
 
-const DescriptionPage = (props)=> {
+const DescriptionPage = (props) => {
     return (
         <Layout>
             <section>
@@ -49,27 +49,27 @@ const DescriptionPage = (props)=> {
                             />
                         </div>
                         <div className={descriptionStyles.descriptionImages}>
-                            <img  src={props.data.contentfulProduct.productImage2.url}   className={descriptionStyles.descriptionImage}/>
-                            <img  src={props.data.contentfulProduct.productImage3.url}  className={descriptionStyles.descriptionImage}/>
-                            <img  src={props.data.contentfulProduct.productImage4.url}  className={descriptionStyles.descriptionImage}/>
+                            <img src={props.data.contentfulProduct.productImage2.url} className={descriptionStyles.descriptionImage} />
+                            <img src={props.data.contentfulProduct.productImage3.url} className={descriptionStyles.descriptionImage} />
+                            <img src={props.data.contentfulProduct.productImage4.url} className={descriptionStyles.descriptionImage} />
                         </div>
                     </div>
                     <div className={descriptionStyles.descriptionContainerContent}>
-                        <h1>{ props.data.contentfulProduct.productName}</h1>
-                        <p>{ props.data.contentfulProduct.productParagraph}</p>
-                        <h4>#{ props.data.contentfulProduct.productPrice}</h4>
+                        <h1>{props.data.contentfulProduct.productName}</h1>
+                        <p>{props.data.contentfulProduct.productParagraph}</p>
+                        <h4>#{props.data.contentfulProduct.productPrice}</h4>
                         <button>Contact Seller</button>
                         <div
                             className={descriptionStyles.descriptionContainerContentImages}
                         >
-                            <Link to ="https://wa.link/chnxm1" target="_blank">
+                            <Link to="https://wa.link/chnxm1" target="_blank">
                                 <StaticImage
                                     src="../../images/whatsapp.png"
                                     className={descriptionStyles.descriptionContainerContentImage}
                                 />
                             </Link>
-                            
-                            <Link to = "https://ig.me/m/murpelmodernfurniture" target= "_blank">
+
+                            <Link to="https://ig.me/m/murpelmodernfurniture" target="_blank">
                                 <StaticImage
                                     src="../../images/instagram.png"
                                     className={descriptionStyles.descriptionContainerContentImage}
@@ -87,7 +87,7 @@ const DescriptionPage = (props)=> {
                                     className={descriptionStyles.descriptionContainerContentImage}
                                 />
                             </Link>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -100,7 +100,7 @@ const DescriptionPage = (props)=> {
                                 className={descriptionStyles.pageDescriptionBoxImage}
                             />
                             <p>Size</p>
-                            <h4>{ props.data.contentfulProduct.productSize}</h4>
+                            <h4>{props.data.contentfulProduct.productSize}</h4>
                         </div>
                         <div className={descriptionStyles.pageDescriptionBox}>
                             <StaticImage
@@ -108,7 +108,7 @@ const DescriptionPage = (props)=> {
                                 className={descriptionStyles.pageDescriptionBoxImage}
                             />
                             <p>Color</p>
-                            <h4>{ props.data.contentfulProduct.productColor}</h4>
+                            <h4>{props.data.contentfulProduct.productColor}</h4>
                         </div>
                         <div className={descriptionStyles.pageDescriptionBox}>
                             <StaticImage
@@ -116,7 +116,7 @@ const DescriptionPage = (props)=> {
                                 className={descriptionStyles.pageDescriptionBoxImage}
                             />
                             <p>Material</p>
-                            <h4>{ props.data.contentfulProduct.productMaterial}</h4>
+                            <h4>{props.data.contentfulProduct.productMaterial}</h4>
                         </div>
                         <div className={descriptionStyles.pageDescriptionBox}>
                             <StaticImage
@@ -124,7 +124,7 @@ const DescriptionPage = (props)=> {
                                 className={descriptionStyles.pageDescriptionBoxImage}
                             />
                             <p>Seating Capacity</p>
-                            <h4>{ props.data.contentfulProduct.productSeatingCapacity}</h4>
+                            <h4>{props.data.contentfulProduct.productSeatingCapacity}</h4>
                         </div>
                     </div>
                     <div className={descriptionStyles.pageDescriptionContent}>
@@ -138,11 +138,11 @@ const DescriptionPage = (props)=> {
                     <Swiper
                         className="mySwiper"
                         spaceBetween={30}
-                        loop= {"true"}
+                        loop={"true"}
                         navigation
                         modules={[Navigation]}
                         slidesPerView={4}
-                        id='box-swiper'  
+                        id='box-swiper'
                         breakpoints={{
                             320: {
                                 slidesPerView: 2.2,
@@ -155,40 +155,38 @@ const DescriptionPage = (props)=> {
                             1024: {
                                 slidesPerView: 4,
                                 spaceBetween: 25,
-                               
+
                             },
                         }}>
-                        { props?.data.allContentfulProduct.nodes.map((node, i) => (
-                        <SwiperSlide >
-                        <div className={descriptionStyles.similarProducts}>
-                            <div className={descriptionStyles.productGridBoxImageCon}>
-                                <img
-                                    alt="logo"
-                                    src={ node?.productImage1.url }
-                                    className={descriptionStyles.productGridBoxImage}
-                                />
-                            </div>
-                            <h3>{node.productName}</h3>
-                            <p>
-                                {node.productParagraph}
-                            </p>
-                            <div className={descriptionStyles.productBoxGrid}>
-                                <h5>{node.productPrice}</h5>
-                                <Link to="">
-                                    <h6>
-                                        BUY NOW{" "}
-                                        <span>
-                                            <BsArrowRight />
-                                        </span>
-                                    </h6>
-                                </Link>
-                            </div>
-                        </div>
-                        </SwiperSlide>
-                    )) }
+                        {props?.data.allContentfulProduct.nodes.map((node, i) => (
+                            <SwiperSlide >
+                                <div className={descriptionStyles.similarProducts}>
+                                    <div className={descriptionStyles.productGridBoxImageCon}>
+                                        <img
+                                            alt="logo"
+                                            src={node?.productImage1.url}
+                                            className={descriptionStyles.productGridBoxImage}
+                                        />
+                                    </div>
+                                    <h3>{node.productName}</h3>
+                                    <p>
+                                        {node.productParagraph}
+                                    </p>
+                                    <div className={descriptionStyles.productBoxGrid}>
+                                        <h5>{node.productPrice}</h5>
+                                        <Link to="">
+                                            <h6>
+                                                BUY NOW{" "}
+                                                <span>
+                                                    <BsArrowRight />
+                                                </span>
+                                            </h6>
+                                        </Link>
+                                    </div>
+                                </div>
+                            </SwiperSlide>
+                        ))}
                     </Swiper>
-
-                    
                 </div>
             </section>
         </Layout>
