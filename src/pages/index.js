@@ -175,18 +175,18 @@ const Home = ({ data }) => {
             <div className={indexStyles.productImageGrid}>
               {data?.allContentfulProduct.nodes.filter((node) => {
                 if (category === null || category === 'All') {
-                  return node;
+                  return node
                 } else if (node?.category[0].categoryName.toLowerCase().includes(category.toLowerCase())) {
-                  return node;
+                  return node
                 }
-                return false;
+                return false
               }).filter((node) => {
                 if (priceFilter === null) {
-                  return node;
+                  return node
                 } else {
-                  const minPrice = (priceFilter - 1) * 50000 + 1;
-                  const maxPrice = priceFilter * 50000;
-                  return node.productPrice >= minPrice && node.productPrice <= maxPrice;
+                  const minPrice = (priceFilter - 1) * 50000 + 1
+                  const maxPrice = priceFilter * 50000
+                  return node.productPrice >= minPrice && node.productPrice <= maxPrice
                 }
               }).map((node, i) => (
                 <div key={node?.id}>
