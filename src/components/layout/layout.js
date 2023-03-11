@@ -1,6 +1,6 @@
 import React from "react"
-import { slide as Menu } from 'react-burger-menu';
-import { useMediaQuery } from "react-responsive";
+// import { slide as Menu } from 'react-burger-menu';
+// import { useMediaQuery } from "react-responsive";
 import{navbar,
         nav,
         container,
@@ -13,7 +13,7 @@ import {AiOutlineInstagram}  from "react-icons/ai"
 import {SlSocialTwitter} from "react-icons/sl"
 import {HiOutlinePhone} from "react-icons/hi"
 import {FiFacebook} from "react-icons/fi"
-import { Link , useStaticQuery, graphql} from "gatsby"
+import { Link} from "gatsby"
 
 // function MobileMenu() {
 //   return (
