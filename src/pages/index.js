@@ -42,8 +42,8 @@ const options = {
 }
 
 const Home = ({ data }) => {
-  const [category, setCategory] = useState(null);
-  const [priceFilter, setPriceFilter] = useState(null);
+  const [category, setCategory] = useState(null)
+  const [priceFilter, setPriceFilter] = useState(null)
   const [isActive, SetIsActive] = useState(false)
 
   return (
@@ -187,7 +187,7 @@ const Home = ({ data }) => {
                   const minPrice = (priceFilter - 1) * 50000 + 1
                   const maxPrice = priceFilter * 50000
                   return node.productPrice >= minPrice && node.productPrice <= maxPrice
-                }
+                } 
               }).map((node, i) => (
                 <div key={node?.id}>
                   <div className={indexStyles.productGridBox}>
