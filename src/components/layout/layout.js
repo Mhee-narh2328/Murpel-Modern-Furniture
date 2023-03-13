@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import MobileMenu from "./MobileMenu";
 import { useMediaQuery } from "react-responsive";
 import{navbar,

@@ -16,7 +16,8 @@ import "../../node_modules/bootstrap/dist/css/bootstrap.css";
 import Seo from '../components/seo'
 
 const Shopping = ({data}) =>{
-    const [ category, setCategory ] = useState('')
+    const [category, setCategory] = useState(null)
+    const [priceFilter, setPriceFilter] = useState(null)
     const [isActive, SetIsActive] = useState(false)
     return (
       <Layout>
@@ -66,25 +67,55 @@ const Shopping = ({data}) =>{
                   </div>
                   {isActive && (
                     <div className={shoppingStyles.dropdownContent}>
-                      <div className={shoppingStyles.dropdownItem}><input type= "radio"/>Under 50,000</div>
-                      <div className={shoppingStyles.dropdownItem}><input type= "radio"/>50,000-100,000</div>
-                      <div className={shoppingStyles.dropdownItem}><input type= "radio"/>100,000-150,000</div>
-                      <div className={shoppingStyles.dropdownItem}><input type= "radio"/>150,000-200,000</div>
-                      <div className={shoppingStyles.dropdownItem}><input type= "radio"/>200,000-250,000</div>
-                      <div className={shoppingStyles.dropdownItem}><input type= "radio"/>Over 250,000</div>
+                    <div className={shoppingStyles.dropdownItem}>
+                      <input type="radio" name="priceFilter" onClick={() => setPriceFilter(null)} />
+                      All
                     </div>
+                    <div className={shoppingStyles.dropdownItem}>
+                      <input type="radio" name="priceFilter" onClick={() => setPriceFilter(1)} />
+                      Under 50,000
+                    </div>
+                    <div className={shoppingStyles.dropdownItem}>
+                      <input type="radio" name="priceFilter" onClick={() => setPriceFilter(2)} />
+                      50,000-100,000
+                    </div>
+                    <div className={shoppingStyles.dropdownItem}>
+                      <input type="radio" name="priceFilter" onClick={() => setPriceFilter(3)} />
+                      100,000-150,000
+                    </div>
+                    <div className={shoppingStyles.dropdownItem}>
+                      <input type="radio" name="priceFilter" onClick={() => setPriceFilter(4)} />
+                      150,000-200,000
+                    </div>
+                    <div className={shoppingStyles.dropdownItem}>
+                      <input type="radio" name="priceFilter" onClick={() => setPriceFilter(5)} />
+                      200,000-250,000
+                    </div>
+                    <div className={shoppingStyles.dropdownItem}>
+                      <input type="radio" name="priceFilter" onClick={() => setPriceFilter(6)} />
+                      Over 250,000
+                    </div>
+                  </div>
                   )}
             </div>
           </div>
           <div>
             <div className= {shoppingStyles.productImageGrid}>
             {data?.allContentfulProduct.nodes.filter((node) => {
-                  if (category === '' || category === 'All'){
+                  if (category === null || category === 'All'){
                     return node
                   } else if( node?.category[0].categoryName.toLowerCase().includes(category.toLowerCase())) {
                         return node
                       } return false
-                }).map((node, i) => (
+                }).filter((node) => {
+                if (priceFilter === null) {
+                  return node
+                } else {
+                  const minPrice = (priceFilter - 1) * 50000 + 1
+                  const maxPrice = priceFilter * 50000
+                  return node.productPrice >= minPrice && node.productPrice <= maxPrice
+                } 
+              }).map((node, i) => (
                   <div key ={node?.id}>
                     <div className= {shoppingStyles.productGridBox}>
                     <div className= {shoppingStyles.productGridBoxImageCon}>
