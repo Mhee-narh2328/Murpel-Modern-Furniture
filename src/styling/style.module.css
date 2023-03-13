@@ -708,8 +708,8 @@ input[type="radio"] {
      }
 
      .heroHeader h1{
-         position: relative;
-         margin-top: -18px;
+         position: inherit;
+         margin-top: 10px;
          font-style: normal;
          font-size: 38px;
          line-height: 44px;
