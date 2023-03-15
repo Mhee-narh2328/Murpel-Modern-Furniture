@@ -848,7 +848,10 @@ input[type="radio"] {
      }
 
      .dropdown{
-         display: none;
+        background-color: #fff;
+        border-radius: 20px;
+        left: 1rem;
+        padding-left: 20px;
      }
 
      .productGrid{
@@ -858,6 +861,7 @@ input[type="radio"] {
      .productImageGrid{
          grid-template-columns: repeat(2, 1fr);
          gap: 1rem;
+         margin-top: 2rem;
      }
 
      .productGridBox{
