@@ -99,12 +99,12 @@ const Home = ({ data }) => {
             <div>
               <form>
                 <input type="text" placeholder="Search.." name="search" className={indexStyles.searchInput} />
-                <button type="submit" className={indexStyles.searchButton}><AiOutlineSearch /></button>
+                <button type="submit"  className={indexStyles.searchButton}><AiOutlineSearch /></button>
               </form>
             </div>
             <div className={indexStyles.dropdown}>
               <div className={indexStyles.dropdownBtn} onClick={(e) =>
-                SetIsActive(!isActive)}>Categories
+                SetIsActive(!isActive)} >Categories
                 <span><MdOutlineKeyboardArrowDown /></span>
               </div>
               {isActive && (

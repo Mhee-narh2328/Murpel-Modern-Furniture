@@ -45,13 +45,14 @@ const DescriptionPage = (props) => {
                         <div>
                             <img
                                 src={props.data.contentfulProduct.productImage1.url}
+                                alt = "frontview"
                                 className={descriptionStyles.descriptionContainerImage}
                             />
                         </div>
                         <div className={descriptionStyles.descriptionImages}>
-                            <img src={props.data.contentfulProduct.productImage2.url} className={descriptionStyles.descriptionImage} />
-                            <img src={props.data.contentfulProduct.productImage3.url} className={descriptionStyles.descriptionImage} />
-                            <img src={props.data.contentfulProduct.productImage4.url} className={descriptionStyles.descriptionImage} />
+                            <img src={props.data.contentfulProduct.productImage2.url} alt = "backview" className={descriptionStyles.descriptionImage} />
+                            <img src={props.data.contentfulProduct.productImage3.url} alt = "leftview" className={descriptionStyles.descriptionImage} />
+                            <img src={props.data.contentfulProduct.productImage4.url} alt = "rightview" className={descriptionStyles.descriptionImage} />
                         </div>
                     </div>
                     <div className={descriptionStyles.descriptionContainerContent}>
