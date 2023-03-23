@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import * as descriptionStyles from "../../styling/style.module.css";
 import Layout from "../../components/layout/layout";
 import { StaticImage } from "gatsby-plugin-image";
@@ -37,6 +37,7 @@ const options = {
 }
 
 const DescriptionPage = (props) => {
+const [isMenuOpen, setIsMenuOpen] = useState(false);
     return (
         <Layout>
             <section>
@@ -59,7 +60,8 @@ const DescriptionPage = (props) => {
                         <h1>{props.data.contentfulProduct.productName}</h1>
                         <p>{props.data.contentfulProduct.productParagraph}</p>
                         <h4>#{props.data.contentfulProduct.productPrice}</h4>
-                        <button>Contact Seller</button>
+                        <button onClick={() => setIsMenuOpen(!isMenuOpen)}>Contact Seller</button>
+                        {isMenuOpen && (
                         <div
                             className={descriptionStyles.descriptionContainerContentImages}
                         >
@@ -90,6 +92,7 @@ const DescriptionPage = (props) => {
                             </Link>
 
                         </div>
+                        )}
                     </div>
                 </div>
                 <div className={descriptionStyles.pageDescription}>
@@ -193,6 +196,7 @@ const DescriptionPage = (props) => {
         </Layout>
     );
 }
+
 
 export const query = graphql`
 query ($id: String){

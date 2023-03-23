@@ -108,7 +108,6 @@ const Home = ({ data }) => {
                 <span><MdOutlineKeyboardArrowDown /></span>
               </div>
               {isActive && (
-
                 <div className={indexStyles.dropdownContent}>
                   <div className={indexStyles.dropdownItem}>
                     <div>
@@ -131,7 +130,6 @@ const Home = ({ data }) => {
                 </div>
               )}
             </div>
-
             <div className={indexStyles.dropdown}>
               <div className={indexStyles.dropdownBtn} onClick={(e) =>
                 SetIsActive(!isActive)}>Price
